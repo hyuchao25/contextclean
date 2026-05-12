@@ -104,7 +104,7 @@ export default function Home() {
         <section className="mt-12 rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
           <h2 className="mb-4 text-2xl font-bold text-white">Guides</h2>
 
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-3">
             <a
               href="/clean-stack-trace-for-chatgpt"
               className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
