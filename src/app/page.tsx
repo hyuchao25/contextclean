@@ -101,6 +101,35 @@ export default function Home() {
             </p>
           </div>
         </section>
+        <section className="mt-12 rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+          <h2 className="mb-4 text-2xl font-bold text-white">Guides</h2>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <a
+              href="/clean-stack-trace-for-chatgpt"
+              className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
+            >
+              <h3 className="mb-2 font-bold text-white">
+                Clean Stack Trace for ChatGPT
+              </h3>
+              <p>
+                Learn why shorter stack traces help ChatGPT debug code more accurately.
+              </p>
+            </a>
+
+            <a
+              href="/reduce-debugging-context-for-ai"
+              className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
+            >
+              <h3 className="mb-2 font-bold text-white">
+                Reduce Debugging Context for AI
+              </h3>
+              <p>
+                Prepare cleaner logs before sending them to AI coding assistants.
+              </p>
+            </a>
+          </div>
+        </section>
               <footer className="mt-12 border-t border-zinc-800 pt-6 text-sm text-zinc-500">
           <div className="flex gap-4">
             <a href="/privacy" className="hover:text-white">
