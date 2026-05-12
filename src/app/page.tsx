@@ -128,6 +128,26 @@ export default function Home() {
                 Prepare cleaner logs before sending them to AI coding assistants.
               </p>
             </a>
+            <a
+              href="/clean-nodejs-error-log"
+              className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
+            >
+              <h3 className="mb-2 font-bold text-white">
+                Clean Node.js Error Logs
+              </h3>
+              <p>
+                Remove noisy Node.js stack
+                <a
+              href="/clean-nodejs-error-log"
+              className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
+            >
+              <h3 className="mb-2 font-bold text-white">
+                Clean Node.js Error Logs
+              </h3>
+              <p>
+                Remove noisy Node.js stack traces before sending errors to AI coding tools.
+              </p>
+            </a>
           </div>
         </section>
               <footer className="mt-12 border-t border-zinc-800 pt-6 text-sm text-zinc-500">
