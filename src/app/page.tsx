@@ -70,6 +70,16 @@ export default function Home() {
           placeholder="Cleaned result will appear here..."
           className="h-72 w-full rounded-xl border border-zinc-700 bg-zinc-950 p-4 font-mono text-sm text-zinc-100 outline-none"
         />
+              <footer className="mt-12 border-t border-zinc-800 pt-6 text-sm text-zinc-500">
+          <div className="flex gap-4">
+            <a href="/privacy" className="hover:text-white">
+              Privacy Policy
+            </a>
+            <a href="/terms" className="hover:text-white">
+              Terms of Use
+            </a>
+          </div>
+        </footer>
       </section>
     </main>
   );
