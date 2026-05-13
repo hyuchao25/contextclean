@@ -1,3 +1,15 @@
+import { getPageSeo, siteUrl } from "../seo";
+
+const seo = getPageSeo("/clean-error-log-for-cursor");
+
+export const metadata = {
+  title: seo.title,
+  description: seo.description,
+  alternates: {
+    canonical: `${siteUrl}${seo.path}`,
+  },
+};
+
 export default function CleanErrorLogForCursorPage() {
   return (
     <main className="min-h-screen bg-black px-6 py-12 text-white">

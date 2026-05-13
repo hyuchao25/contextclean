@@ -1,3 +1,15 @@
+import { getPageSeo, siteUrl } from "../seo";
+
+const seo = getPageSeo("/contact");
+
+export const metadata = {
+  title: seo.title,
+  description: seo.description,
+  alternates: {
+    canonical: `${siteUrl}${seo.path}`,
+  },
+};
+
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-black px-6 py-12 text-white">

@@ -1,3 +1,15 @@
+import { getPageSeo, siteUrl } from "../seo";
+
+const seo = getPageSeo("/clean-docker-build-log");
+
+export const metadata = {
+  title: seo.title,
+  description: seo.description,
+  alternates: {
+    canonical: `${siteUrl}${seo.path}`,
+  },
+};
+
 export default function CleanDockerBuildLogPage() {
   return (
     <main className="min-h-screen bg-black px-6 py-12 text-white">

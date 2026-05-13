@@ -100,3 +100,7 @@ export const pages = [
       "Read the ContextClean terms of use for browser-based log cleaning tools.",
   },
 ];
+
+export function getPageSeo(path: string) {
+  return pages.find((page) => page.path === path) || pages[0];
+}
