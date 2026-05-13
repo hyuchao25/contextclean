@@ -175,6 +175,17 @@ export default function Home() {
               <h3 className="mb-2 font-bold text-white">Clean CI Error Logs</h3>
               <p>Prepare cleaner GitHub Actions and CI logs for AI debugging.</p>
             </a>
+            <a
+              href="/clean-error-log-for-cursor"
+              className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
+            >
+              <h3 className="mb-2 font-bold text-white">
+                Clean Error Logs for Cursor
+              </h3>
+              <p>
+                Prepare shorter error logs before pasting them into Cursor AI.
+              </p>
+            </a>
           </div>
           
         </section>
