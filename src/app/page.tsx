@@ -299,6 +299,58 @@ Cache restored successfully.`,
         )}
                 <section className="mt-10 rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
           <h2 className="mb-4 text-2xl font-bold text-white">
+            Supported log types
+          </h2>
+
+          <div className="grid gap-3 md:grid-cols-3">
+            {[
+              "JavaScript stack traces",
+              "Node.js errors",
+              "Python tracebacks",
+              "React errors",
+              "Next.js build errors",
+              "TypeScript compiler errors",
+              "Docker build logs",
+              "CI / GitHub Actions logs",
+              "General debugging output",
+            ].map((item) => (
+              <div
+                key={item}
+                className="rounded-xl border border-zinc-800 bg-black p-3 text-sm text-zinc-300"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </section>
+                <section className="mt-10 rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+          <h2 className="mb-4 text-2xl font-bold text-white">
+            Before and after example
+          </h2>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <h3 className="mb-2 font-bold text-zinc-300">Before</h3>
+              <pre className="overflow-x-auto rounded-xl border border-zinc-800 bg-black p-4 text-xs text-zinc-400">
+{`Error: Cannot find module 'next'
+    at Object.<anonymous> (C:\\project\\app\\page.tsx:10:5)
+    at C:\\project\\node_modules\\next\\dist\\server.js:20:1
+    at async Promise.all
+    at processTicksAndRejections`}
+              </pre>
+            </div>
+
+            <div>
+              <h3 className="mb-2 font-bold text-zinc-300">After</h3>
+              <pre className="overflow-x-auto rounded-xl border border-green-900 bg-black p-4 text-xs text-green-300">
+{`Error: Cannot find module 'next'
+    at Object.<anonymous> (C:\\project\\app\\page.tsx:10:5)`}
+              </pre>
+            </div>
+          </div>
+        </section>
+                <section className="mt-10 rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+          <h2 className="mb-4 text-2xl font-bold text-white">
             How to use ContextClean
           </h2>
 
