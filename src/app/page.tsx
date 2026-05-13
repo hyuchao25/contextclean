@@ -5,6 +5,12 @@ import { useState } from "react";
 export default function Home() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const inputLength = input.length;
+  const outputLength = output.length;
+  const reduction =
+    inputLength > 0 && outputLength > 0
+      ? Math.round(((inputLength - outputLength) / inputLength) * 100)
+      : 0;
 
   function cleanStackTrace() {
     const noisePatterns = [
@@ -75,6 +81,11 @@ TypeError: Cannot read properties of undefined
     setOutput("");
   }
 
+  function clearAll() {
+    setInput("");
+    setOutput("");
+  }
+
   async function copyOutput() {
     await navigator.clipboard.writeText(output || input);
   }
@@ -97,6 +108,17 @@ TypeError: Cannot read properties of undefined
           className="mb-4 h-72 w-full rounded-xl border border-zinc-700 bg-zinc-900 p-4 font-mono text-sm text-zinc-100 outline-none"
         />
 
+<div className="mb-4 grid gap-3 text-sm text-zinc-400 md:grid-cols-3">
+          <div className="rounded-xl border border-zinc-800 bg-zinc-950 p-3">
+            Input characters: {inputLength}
+          </div>
+          <div className="rounded-xl border border-zinc-800 bg-zinc-950 p-3">
+            Output characters: {outputLength}
+          </div>
+          <div className="rounded-xl border border-zinc-800 bg-zinc-950 p-3">
+            Reduction: {reduction}%
+          </div>
+        </div>
 <div className="mb-6 flex flex-wrap gap-3">
           <button
             onClick={cleanStackTrace}
@@ -117,6 +139,12 @@ TypeError: Cannot read properties of undefined
             className="rounded-xl border border-zinc-700 px-6 py-3 font-bold text-white"
           >
             Copy Result
+          </button>
+          <button
+            onClick={clearAll}
+            className="rounded-xl border border-zinc-700 px-6 py-3 font-bold text-white"
+          >
+            Clear
           </button>
         </div>
 
