@@ -270,6 +270,17 @@ TypeError: Cannot read properties of undefined
                 Prepare shorter error logs before pasting them into Cursor AI.
               </p>
             </a>
+            <a
+              href="/clean-ai-coding-prompt-context"
+              className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
+            >
+              <h3 className="mb-2 font-bold text-white">
+                Clean AI Coding Prompt Context
+              </h3>
+              <p>
+                Shorten noisy debugging context before sending prompts to AI coding tools.
+              </p>
+            </a>
           </div>
           
         </section>
