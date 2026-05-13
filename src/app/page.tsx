@@ -245,6 +245,43 @@ TypeError: Cannot read properties of undefined
           </div>
           
         </section>
+        <section className="mt-12 rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+          <h2 className="mb-6 text-2xl font-bold text-white">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-6 text-zinc-300">
+            <div>
+              <h3 className="mb-2 font-bold text-white">
+                Does ContextClean upload my logs?
+              </h3>
+              <p>
+                No. The cleaner runs in your browser. Your pasted text is not stored
+                by ContextClean.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="mb-2 font-bold text-white">
+                What AI tools is this for?
+              </h3>
+              <p>
+                ContextClean is designed for ChatGPT, Claude, Cursor, Codex, and other
+                AI coding assistants.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="mb-2 font-bold text-white">
+                What kinds of logs can I clean?
+              </h3>
+              <p>
+                You can clean stack traces, Node.js logs, Python tracebacks, React
+                errors, Next.js build errors, Docker logs, and CI output.
+              </p>
+            </div>
+          </div>
+        </section>
               <footer className="mt-12 border-t border-zinc-800 pt-6 text-sm text-zinc-500">
               <div className="flex flex-wrap gap-4">
             <a href="/about" className="hover:text-white">
