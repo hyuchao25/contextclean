@@ -174,13 +174,37 @@ Cache restored successfully.`,
         </h1>
 
         <p className="mb-8 text-lg text-zinc-400">
-          Reduce noisy logs before sending them to ChatGPT, Claude or Cursor.
+          Paste a noisy error log, stack trace, build failure, or CI output.
+          ContextClean removes low-signal lines so AI coding tools can focus on
+          the real error.
         </p>
         <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4 text-sm text-zinc-400">
           <strong className="text-zinc-200">Privacy note:</strong> ContextClean runs
           in your browser. Do not paste passwords, API keys, tokens, customer data,
           or other sensitive secrets into any online tool.
         </div>
+        <section className="mb-6 grid gap-4 md:grid-cols-3">
+          <div className="rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+            <h2 className="mb-2 font-bold text-white">For AI debugging</h2>
+            <p className="text-sm text-zinc-400">
+              Prepare cleaner context before asking ChatGPT, Claude, Cursor, or Codex.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+            <h2 className="mb-2 font-bold text-white">For build failures</h2>
+            <p className="text-sm text-zinc-400">
+              Shorten noisy Next.js, Docker, CI, Node.js, and TypeScript errors.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+            <h2 className="mb-2 font-bold text-white">For safer sharing</h2>
+            <p className="text-sm text-zinc-400">
+              Remove repeated noise before sharing logs with teammates or AI tools.
+            </p>
+          </div>
+        </section>
         <div className="mb-4">
           <label className="mb-2 block text-sm font-bold text-zinc-300">
             Cleaning mode
@@ -273,6 +297,18 @@ Cache restored successfully.`,
             </p>
           </div>
         )}
+                <section className="mt-10 rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+          <h2 className="mb-4 text-2xl font-bold text-white">
+            How to use ContextClean
+          </h2>
+
+          <ol className="list-decimal space-y-3 pl-6 text-zinc-300">
+            <li>Choose a cleaning mode that matches your error type.</li>
+            <li>Paste your raw log, stack trace, traceback, or build failure.</li>
+            <li>Click Clean Stack Trace to remove noisy low-signal lines.</li>
+            <li>Copy the cleaned result or copy a ready-made AI debugging prompt.</li>
+          </ol>
+        </section>
                 <section className="mt-16 grid gap-8 text-zinc-300 md:grid-cols-3">
           <div>
             <h2 className="mb-3 text-xl font-bold text-white">
@@ -439,6 +475,15 @@ Cache restored successfully.`,
               </p>
             </div>
           </div>
+          <div>
+              <h3 className="mb-2 font-bold text-white">
+                Is ContextClean a replacement for debugging?
+              </h3>
+              <p>
+                No. It helps prepare cleaner debugging context for AI tools. You should
+                still review the original error and verify any suggested fix yourself.
+              </p>
+            </div>
         </section>
               <footer className="mt-12 border-t border-zinc-800 pt-6 text-sm text-zinc-500">
               <div className="flex flex-wrap gap-4">
