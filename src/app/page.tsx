@@ -7,23 +7,72 @@ export default function Home() {
   const [output, setOutput] = useState("");
 
   function cleanStackTrace() {
-    const lines = input
-      .split("\n")
-      .filter((line) => {
-        const lower = line.toLowerCase();
-        return (
-          line.trim() !== "" &&
-          !lower.includes("node_modules") &&
-          !lower.includes(".next") &&
-          !lower.includes("webpack") &&
-          !lower.includes("internal/modules") &&
-          !lower.includes("at process.") &&
-          !lower.includes("at async")
-        );
-      });
+    const noisePatterns = [
+      "node_modules",
+      ".next",
+      "webpack",
+      "turbopack",
+      "internal/modules",
+      "at process.",
+      "at async",
+      "npm notice",
+      "npm warn",
+      "yarn install",
+      "pnpm install",
+      "package-lock.json",
+      "next-development.log",
+      "compiled successfully",
+      "ready in",
+    ];
 
-    const cleaned = Array.from(new Set(lines)).join("\n");
-    setOutput(cleaned);
+    const importantPatterns = [
+      "error",
+      "exception",
+      "failed",
+      "cannot",
+      "missing",
+      "not found",
+      "syntaxerror",
+      "typeerror",
+      "referenceerror",
+      "traceback",
+      "caused by",
+      "line ",
+    ];
+
+    const lines = input.split("\n");
+
+    const cleanedLines = lines.filter((line) => {
+      const text = line.trim();
+      const lower = text.toLowerCase();
+
+      if (!text) return false;
+
+      const isImportant = importantPatterns.some((pattern) =>
+        lower.includes(pattern)
+      );
+
+      const isNoise = noisePatterns.some((pattern) =>
+        lower.includes(pattern)
+      );
+
+      return isImportant || !isNoise;
+    });
+
+    const uniqueLines = Array.from(new Set(cleanedLines));
+
+    setOutput(uniqueLines.join("\n"));
+  }
+  function loadExample() {
+    setInput(`Error: Cannot find module 'next'
+    at Object.<anonymous> (C:\\project\\app\\page.tsx:10:5)
+    at Module._compile (node:internal/modules/cjs/loader:1254:14)
+    at C:\\project\\node_modules\\next\\dist\\server.js:20:1
+    at async Promise.all
+    at processTicksAndRejections
+TypeError: Cannot read properties of undefined
+    at handler (C:\\project\\src\\api\\user.ts:25:12)`);
+    setOutput("");
   }
 
   async function copyOutput() {
@@ -48,12 +97,19 @@ export default function Home() {
           className="mb-4 h-72 w-full rounded-xl border border-zinc-700 bg-zinc-900 p-4 font-mono text-sm text-zinc-100 outline-none"
         />
 
-        <div className="mb-6 flex gap-3">
+<div className="mb-6 flex flex-wrap gap-3">
           <button
             onClick={cleanStackTrace}
             className="rounded-xl bg-green-500 px-6 py-3 font-bold text-black"
           >
             Clean Stack Trace
+          </button>
+
+          <button
+            onClick={loadExample}
+            className="rounded-xl border border-zinc-700 px-6 py-3 font-bold text-white"
+          >
+            Load Example
           </button>
 
           <button
