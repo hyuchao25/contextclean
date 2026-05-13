@@ -246,7 +246,13 @@ TypeError: Cannot read properties of undefined
           
         </section>
               <footer className="mt-12 border-t border-zinc-800 pt-6 text-sm text-zinc-500">
-          <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
+            <a href="/about" className="hover:text-white">
+              About
+            </a>
+            <a href="/contact" className="hover:text-white">
+              Contact
+            </a>
             <a href="/privacy" className="hover:text-white">
               Privacy Policy
             </a>
