@@ -152,8 +152,7 @@ export default function Home() {
               <h3 className="mb-2 font-bold text-white">Clean Next.js Build Errors</h3>
               <p>Make Next.js build logs shorter and easier for AI assistants to understand.</p>
             </a>
-          </div>
-          <a
+            <a
               href="/clean-typescript-error-for-ai"
               className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
             >
@@ -176,6 +175,8 @@ export default function Home() {
               <h3 className="mb-2 font-bold text-white">Clean CI Error Logs</h3>
               <p>Prepare cleaner GitHub Actions and CI logs for AI debugging.</p>
             </a>
+          </div>
+          
         </section>
               <footer className="mt-12 border-t border-zinc-800 pt-6 text-sm text-zinc-500">
           <div className="flex gap-4">
