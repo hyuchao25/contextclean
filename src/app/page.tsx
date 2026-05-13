@@ -176,7 +176,11 @@ Cache restored successfully.`,
         <p className="mb-8 text-lg text-zinc-400">
           Reduce noisy logs before sending them to ChatGPT, Claude or Cursor.
         </p>
-
+        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4 text-sm text-zinc-400">
+          <strong className="text-zinc-200">Privacy note:</strong> ContextClean runs
+          in your browser. Do not paste passwords, API keys, tokens, customer data,
+          or other sensitive secrets into any online tool.
+        </div>
         <div className="mb-4">
           <label className="mb-2 block text-sm font-bold text-zinc-300">
             Cleaning mode
@@ -259,6 +263,16 @@ Cache restored successfully.`,
           placeholder="Cleaned result will appear here..."
           className="h-72 w-full rounded-xl border border-zinc-700 bg-zinc-950 p-4 font-mono text-sm text-zinc-100 outline-none"
         />
+                {output && (
+          <div className="mt-4 rounded-xl border border-green-900 bg-green-950/30 p-4 text-sm text-green-200">
+            <p className="font-bold text-green-300">Cleaned successfully</p>
+            <p className="mt-2">
+              The output above has removed common noisy lines, repeated entries,
+              and low-signal debugging context. You can now copy it directly into
+              ChatGPT, Claude, Cursor, Codex, or another AI coding assistant.
+            </p>
+          </div>
+        )}
                 <section className="mt-16 grid gap-8 text-zinc-300 md:grid-cols-3">
           <div>
             <h2 className="mb-3 text-xl font-bold text-white">
