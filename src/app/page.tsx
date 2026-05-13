@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function Home() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const [mode, setMode] = useState("general");
   const inputLength = input.length;
   const outputLength = output.length;
   const reduction =
@@ -13,7 +14,7 @@ export default function Home() {
       : 0;
 
   function cleanStackTrace() {
-    const noisePatterns = [
+    const baseNoisePatterns = [
       "node_modules",
       ".next",
       "webpack",
@@ -23,12 +24,24 @@ export default function Home() {
       "at async",
       "npm notice",
       "npm warn",
-      "yarn install",
-      "pnpm install",
       "package-lock.json",
       "next-development.log",
       "compiled successfully",
       "ready in",
+    ];
+
+    const modeNoisePatterns: Record<string, string[]> = {
+      general: [],
+      node: ["node:", "node_modules", "internal/modules", "npm ", "pnpm ", "yarn "],
+      python: ["site-packages", "venv", "__pycache__", "pytest", "traceback"],
+      react: ["react-dom", "hydration", "webpack", ".next", "next/dist"],
+      docker: ["step ", "pulling fs layer", "download complete", "extracting", "docker build"],
+      ci: ["github actions", "runner", "checkout", "setup-", "cache restored", "npm install"],
+    };
+
+    const noisePatterns = [
+      ...baseNoisePatterns,
+      ...(modeNoisePatterns[mode] || []),
     ];
 
     const importantPatterns = [
@@ -70,20 +83,83 @@ export default function Home() {
     setOutput(uniqueLines.join("\n"));
   }
   function loadExample() {
-    setInput(`Error: Cannot find module 'next'
+    const examples: Record<string, string> = {
+      general: `Error: Cannot find module 'next'
     at Object.<anonymous> (C:\\project\\app\\page.tsx:10:5)
     at Module._compile (node:internal/modules/cjs/loader:1254:14)
     at C:\\project\\node_modules\\next\\dist\\server.js:20:1
-    at async Promise.all
-    at processTicksAndRejections
 TypeError: Cannot read properties of undefined
-    at handler (C:\\project\\src\\api\\user.ts:25:12)`);
+    at handler (C:\\project\\src\\api\\user.ts:25:12)`,
+
+      node: `Error: Cannot find module 'express'
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1144:15)
+    at Module._load (node:internal/modules/cjs/loader:985:27)
+    at Object.<anonymous> (C:\\app\\server.js:3:17)
+    at C:\\app\\node_modules\\express\\index.js:18:1
+npm warn deprecated package found`,
+
+      python: `Traceback (most recent call last):
+  File "/app/main.py", line 12, in <module>
+    run()
+  File "/app/main.py", line 8, in run
+    print(user["name"])
+KeyError: 'name'
+  File "/app/venv/lib/python3.11/site-packages/flask/app.py", line 200, in __call__
+pytest warning: cached data ignored`,
+
+      react: `Error: Hydration failed because the initial UI does not match.
+    at div
+    at Header (src/components/Header.tsx:15:3)
+    at App
+    at react-dom/client
+    at webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js
+Warning: Text content did not match.`,
+
+      docker: `Step 1/8 : FROM node:20
+ ---> Using cache
+Step 2/8 : COPY package.json .
+Step 3/8 : RUN npm install
+npm warn deprecated package
+Step 4/8 : RUN npm run build
+Error: Cannot find module 'next'
+The command '/bin/sh -c npm run build' returned a non-zero code: 1`,
+
+      ci: `Run npm install
+npm warn deprecated package
+Run npm test
+FAIL src/user.test.ts
+TypeError: Cannot read properties of undefined
+    at src/user.ts:18:10
+Error: Process completed with exit code 1.
+Post job cleanup.
+Cache restored successfully.`,
+    };
+
+    setInput(examples[mode] || examples.general);
     setOutput("");
   }
 
   function clearAll() {
     setInput("");
     setOutput("");
+  }
+  function downloadResult() {
+    const text = output || input;
+    const blob = new Blob([text], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "contextclean-result.txt";
+    link.click();
+
+    URL.revokeObjectURL(url);
+  }
+
+  async function copyPromptForAI() {
+    const cleanedText = output || input;
+    const prompt = `Please debug this error log. Focus on the root cause and suggest the minimal fix:\n\n${cleanedText}`;
+    await navigator.clipboard.writeText(prompt);
   }
 
   async function copyOutput() {
@@ -101,6 +177,23 @@ TypeError: Cannot read properties of undefined
           Reduce noisy logs before sending them to ChatGPT, Claude or Cursor.
         </p>
 
+        <div className="mb-4">
+          <label className="mb-2 block text-sm font-bold text-zinc-300">
+            Cleaning mode
+          </label>
+          <select
+            value={mode}
+            onChange={(e) => setMode(e.target.value)}
+            className="w-full rounded-xl border border-zinc-700 bg-zinc-900 p-3 text-white outline-none md:w-72"
+          >
+            <option value="general">General</option>
+            <option value="node">Node.js</option>
+            <option value="python">Python</option>
+            <option value="react">React / Next.js</option>
+            <option value="docker">Docker</option>
+            <option value="ci">CI / GitHub Actions</option>
+          </select>
+        </div>
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
@@ -139,6 +232,18 @@ TypeError: Cannot read properties of undefined
             className="rounded-xl border border-zinc-700 px-6 py-3 font-bold text-white"
           >
             Copy Result
+          </button>
+          <button
+            onClick={copyPromptForAI}
+            className="rounded-xl border border-zinc-700 px-6 py-3 font-bold text-white"
+          >
+            Copy Prompt for AI
+          </button>
+          <button
+            onClick={downloadResult}
+            className="rounded-xl border border-zinc-700 px-6 py-3 font-bold text-white"
+          >
+            Download Result
           </button>
           <button
             onClick={clearAll}
