@@ -109,36 +109,48 @@ export default function Home() {
               href="/clean-stack-trace-for-chatgpt"
               className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
             >
-              <h3 className="mb-2 font-bold text-white">
-                Clean Stack Trace for ChatGPT
-              </h3>
-              <p>
-                Learn why shorter stack traces help ChatGPT debug code more accurately.
-              </p>
+              <h3 className="mb-2 font-bold text-white">Clean Stack Trace for ChatGPT</h3>
+              <p>Learn why shorter stack traces help ChatGPT debug code more accurately.</p>
             </a>
 
             <a
               href="/reduce-debugging-context-for-ai"
               className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
             >
-              <h3 className="mb-2 font-bold text-white">
-                Reduce Debugging Context for AI
-              </h3>
-              <p>
-                Prepare cleaner logs before sending them to AI coding assistants.
-              </p>
+              <h3 className="mb-2 font-bold text-white">Reduce Debugging Context for AI</h3>
+              <p>Prepare cleaner logs before sending them to AI coding assistants.</p>
             </a>
 
             <a
               href="/clean-nodejs-error-log"
               className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
             >
-              <h3 className="mb-2 font-bold text-white">
-                Clean Node.js Error Logs
-              </h3>
-              <p>
-                Remove noisy Node.js stack traces before sending errors to AI coding tools.
-              </p>
+              <h3 className="mb-2 font-bold text-white">Clean Node.js Error Logs</h3>
+              <p>Remove noisy Node.js stack traces before sending errors to AI coding tools.</p>
+            </a>
+
+            <a
+              href="/clean-python-traceback-for-ai"
+              className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
+            >
+              <h3 className="mb-2 font-bold text-white">Clean Python Tracebacks</h3>
+              <p>Shorten Python tracebacks before asking ChatGPT or Claude for debugging help.</p>
+            </a>
+
+            <a
+              href="/clean-react-error-stack"
+              className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
+            >
+              <h3 className="mb-2 font-bold text-white">Clean React Error Stacks</h3>
+              <p>Remove noisy React and Next.js error output before using AI coding tools.</p>
+            </a>
+
+            <a
+              href="/clean-nextjs-build-error"
+              className="rounded-xl border border-zinc-800 p-4 text-zinc-300 hover:border-green-500 hover:text-white"
+            >
+              <h3 className="mb-2 font-bold text-white">Clean Next.js Build Errors</h3>
+              <p>Make Next.js build logs shorter and easier for AI assistants to understand.</p>
             </a>
           </div>
         </section>
