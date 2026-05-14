@@ -1,3 +1,4 @@
+import GuideFooter from "../components/GuideFooter";
 import { getPageSeo, siteUrl } from "../seo";
 
 const seo = getPageSeo("/reduce-debugging-context-for-ai");
@@ -64,6 +65,8 @@ export default function ReduceDebuggingContextForAIPage() {
         >
           Open Context Cleaner
         </a>
+        <GuideFooter />
+
       </article>
     </main>
   );

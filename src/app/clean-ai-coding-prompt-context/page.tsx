@@ -1,3 +1,4 @@
+import GuideFooter from "../components/GuideFooter";
 import { getPageSeo, siteUrl } from "../seo";
 
 const seo = getPageSeo("/clean-ai-coding-prompt-context");
@@ -63,6 +64,8 @@ export default function CleanAICodingPromptContextPage() {
         >
           Open Context Cleaner
         </a>
+        <GuideFooter />
+
       </article>
     </main>
   );

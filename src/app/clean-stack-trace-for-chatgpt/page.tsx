@@ -1,3 +1,4 @@
+import GuideFooter from "../components/GuideFooter";
 import { getPageSeo, siteUrl } from "../seo";
 
 const seo = getPageSeo("/clean-stack-trace-for-chatgpt");
@@ -66,6 +67,8 @@ export default function CleanStackTraceForChatGPTPage() {
         >
           Open Stack Trace Cleaner
         </a>
+        <GuideFooter />
+
       </article>
     </main>
   );

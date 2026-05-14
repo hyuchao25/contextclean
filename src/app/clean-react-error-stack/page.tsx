@@ -1,3 +1,4 @@
+import GuideFooter from "../components/GuideFooter";
 import { getPageSeo, siteUrl } from "../seo";
 
 const seo = getPageSeo("/clean-react-error-stack");
@@ -50,6 +51,8 @@ export default function CleanReactErrorStackPage() {
         <a href="/" className="inline-block rounded-xl bg-green-500 px-6 py-3 font-bold text-black">
           Open React Error Cleaner
         </a>
+        <GuideFooter />
+
       </article>
     </main>
   );

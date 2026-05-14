@@ -1,3 +1,4 @@
+import GuideFooter from "../components/GuideFooter";
 import { getPageSeo, siteUrl } from "../seo";
 
 const seo = getPageSeo("/clean-nodejs-error-log");
@@ -65,6 +66,8 @@ export default function CleanNodeJSErrorLogPage() {
         >
           Open Node.js Log Cleaner
         </a>
+        <GuideFooter />
+
       </article>
     </main>
   );

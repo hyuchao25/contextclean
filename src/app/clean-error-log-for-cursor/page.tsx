@@ -1,3 +1,4 @@
+import GuideFooter from "../components/GuideFooter";
 import { getPageSeo, siteUrl } from "../seo";
 
 const seo = getPageSeo("/clean-error-log-for-cursor");
@@ -64,6 +65,8 @@ export default function CleanErrorLogForCursorPage() {
         >
           Open Cursor Log Cleaner
         </a>
+        <GuideFooter />
+
       </article>
     </main>
   );

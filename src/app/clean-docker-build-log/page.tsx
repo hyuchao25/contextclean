@@ -1,3 +1,4 @@
+import GuideFooter from "../components/GuideFooter";
 import { getPageSeo, siteUrl } from "../seo";
 
 const seo = getPageSeo("/clean-docker-build-log");
@@ -49,6 +50,8 @@ export default function CleanDockerBuildLogPage() {
         <a href="/" className="inline-block rounded-xl bg-green-500 px-6 py-3 font-bold text-black">
           Open Docker Log Cleaner
         </a>
+        <GuideFooter />
+
       </article>
     </main>
   );
