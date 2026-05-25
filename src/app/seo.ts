@@ -76,6 +76,30 @@ export const pages = [
       "Shorten noisy debugging context before sending prompts to AI coding tools.",
   },
   {
+    path: "/resources",
+    title: "Resources for AI Debugging Workflows - ContextClean",
+    description:
+      "Read practical resources on AI debugging prompts, safer log sharing, and build-error review workflows.",
+  },
+  {
+    path: "/ai-debugging-checklist",
+    title: "AI Debugging Checklist - ContextClean",
+    description:
+      "Use a practical checklist to send better logs and cleaner prompts to AI coding assistants.",
+  },
+  {
+    path: "/safe-log-sharing-for-ai",
+    title: "Safe Log Sharing for AI - ContextClean",
+    description:
+      "Learn how to reduce privacy and security risk before sharing logs with AI tools.",
+  },
+  {
+    path: "/how-to-read-build-errors-before-asking-ai",
+    title: "How to Read Build Errors Before Asking AI - ContextClean",
+    description:
+      "Read build failures more effectively before sending them to AI coding assistants.",
+  },
+  {
     path: "/about",
     title: "About ContextClean",
     description:
