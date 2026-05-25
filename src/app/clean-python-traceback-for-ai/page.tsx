@@ -41,7 +41,28 @@ export default function CleanPythonTracebackForAIPage() {
           <li>test runner noise</li>
           <li>low-signal framework internals</li>
         </ul>
+        <h2 className="mt-10 mb-4 text-2xl font-bold">
+          Useful Python traceback lines to keep
+        </h2>
 
+        <p className="mb-4 text-zinc-400">
+          For Python debugging, the most useful lines are usually the exception type,
+          the final error message, and the last few frames that point to your own files.
+        </p>
+
+        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+          <h3 className="mb-2 font-bold text-white">Example</h3>
+          <pre className="overflow-x-auto text-sm text-zinc-400">
+{`File "/app/main.py", line 8, in run
+    print(user["name"])
+KeyError: 'name'`}
+          </pre>
+        </div>
+
+        <p className="mb-4 text-zinc-400">
+          You can usually remove long site-packages frames unless the error appears to
+          come from a library configuration problem.
+        </p>
         <h2 className="mt-10 mb-4 text-2xl font-bold">Use ContextClean</h2>
         <p className="mb-6 text-zinc-400">
           Paste your Python traceback into ContextClean, clean the noisy lines, then

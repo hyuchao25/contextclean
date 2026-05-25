@@ -41,7 +41,27 @@ export default function CleanTypeScriptErrorForAIPage() {
           <li>irrelevant warnings</li>
           <li>low-signal framework messages</li>
         </ul>
+        <h2 className="mt-10 mb-4 text-2xl font-bold">
+          Useful TypeScript error details to keep
+        </h2>
 
+        <p className="mb-4 text-zinc-400">
+          For TypeScript errors, keep the file path, line number, error code, expected
+          type, received type, and the smallest code snippet that shows the mismatch.
+        </p>
+
+        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+          <h3 className="mb-2 font-bold text-white">Example</h3>
+          <pre className="overflow-x-auto text-sm text-zinc-400">
+{`src/user.ts:18:10
+Type 'undefined' is not assignable to type 'User'.`}
+          </pre>
+        </div>
+
+        <p className="mb-4 text-zinc-400">
+          Remove repeated compiler output, generated file paths, and unrelated warnings
+          before sending the error to an AI assistant.
+        </p>
         <h2 className="mt-10 mb-4 text-2xl font-bold">Use ContextClean</h2>
         <p className="mb-6 text-zinc-400">
           Paste your TypeScript error into ContextClean, clean it, then send the shorter

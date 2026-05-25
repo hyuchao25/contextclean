@@ -50,7 +50,28 @@ export default function CleanNodeJSErrorLogPage() {
           <li>irrelevant async frames</li>
           <li>framework build output</li>
         </ul>
+        <h2 className="mt-10 mb-4 text-2xl font-bold">
+          Useful Node.js lines to keep
+        </h2>
 
+        <p className="mb-4 text-zinc-400">
+          When debugging Node.js errors with AI, keep the first error message, your
+          application file path, the line number, and the function name. These lines
+          usually tell the AI where the bug starts.
+        </p>
+
+        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+          <h3 className="mb-2 font-bold text-white">Example</h3>
+          <pre className="overflow-x-auto text-sm text-zinc-400">
+{`Error: Cannot find module 'express'
+    at Object.<anonymous> (C:\\app\\server.js:3:17)`}
+          </pre>
+        </div>
+
+        <p className="mb-4 text-zinc-400">
+          Remove long dependency traces unless the failure clearly comes from a package
+          version conflict or missing dependency.
+        </p>
         <h2 className="mt-10 mb-4 text-2xl font-bold">
           Use the free Node.js log cleaner
         </h2>
