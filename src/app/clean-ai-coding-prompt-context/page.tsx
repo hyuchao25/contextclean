@@ -48,7 +48,30 @@ export default function CleanAICodingPromptContextPage() {
           <li>empty lines</li>
           <li>irrelevant warnings</li>
         </ul>
+        <h2 className="mt-10 mb-4 text-2xl font-bold">
+          What a useful AI debugging prompt includes
+        </h2>
 
+        <p className="mb-4 text-zinc-400">
+          A good AI debugging prompt should include the real error, the relevant file
+          path, the expected behavior, what changed recently, and the cleaned log. This
+          gives the AI enough context without overwhelming it with unrelated output.
+        </p>
+
+        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+          <h3 className="mb-2 font-bold text-white">Example prompt</h3>
+          <pre className="overflow-x-auto text-sm text-zinc-400">
+{`Please debug this error.
+Relevant file: src/app/page.tsx
+Expected behavior: the page should render without crashing
+Error: TypeError: Cannot read properties of undefined`}
+          </pre>
+        </div>
+
+        <p className="mb-4 text-zinc-400">
+          ContextClean helps create cleaner prompt context by removing repeated lines,
+          dependency noise, and low-signal debugging output before you ask the AI for a fix.
+        </p>
         <h2 className="mt-10 mb-4 text-2xl font-bold">
           Use ContextClean
         </h2>

@@ -49,7 +49,30 @@ export default function ReduceDebuggingContextForAIPage() {
           <li>irrelevant async frames</li>
           <li>unrelated warnings</li>
         </ul>
+        <h2 className="mt-10 mb-4 text-2xl font-bold">
+          How to decide what context to keep
+        </h2>
 
+        <p className="mb-4 text-zinc-400">
+          Keep the first clear error message, your own file paths, line numbers,
+          failing command, framework name, and the smallest relevant code location.
+          Remove repeated internal frames, installation progress, and unrelated warnings.
+        </p>
+
+        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+          <h3 className="mb-2 font-bold text-white">Good context</h3>
+          <pre className="overflow-x-auto text-sm text-zinc-400">
+{`Error: Cannot read properties of undefined
+File: src/api/user.ts
+Line: 18
+Command: npm run build`}
+          </pre>
+        </div>
+
+        <p className="mb-4 text-zinc-400">
+          The goal is not to remove every stack trace line. The goal is to preserve the
+          lines that help the AI understand the root cause.
+        </p>
         <h2 className="mt-10 mb-4 text-2xl font-bold">
           Use ContextClean
         </h2>
