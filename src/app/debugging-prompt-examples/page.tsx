@@ -67,6 +67,25 @@ export default function DebuggingPromptExamplesPage() {
             </section>
           ))}
         </div>
+
+        <section className="mt-10 rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+          <h2 className="text-2xl font-semibold text-white">Related reading</h2>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link href="/ai-debugging-checklist" className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-300 hover:text-white">
+              AI Debugging Checklist
+            </Link>
+            <Link href="/what-makes-a-high-signal-error-report" className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-300 hover:text-white">
+              High-Signal Error Reports
+            </Link>
+            <Link href="/compare-raw-vs-cleaned-logs" className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-300 hover:text-white">
+              Compare Raw vs Cleaned Logs
+            </Link>
+          </div>
+        </section>
+
+        <p className="mt-10 text-sm leading-7 text-stone-400">
+          Last reviewed: May 25, 2026. Maintained as part of the ContextClean resource library.
+        </p>
       </article>
     </main>
   );

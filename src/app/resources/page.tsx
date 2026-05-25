@@ -42,6 +42,71 @@ const resources = [
     title: "Editorial Updates",
     body: "A summary page showing that the site is actively maintained and expanded over time.",
   },
+  {
+    href: "/debug-hydration-errors-step-by-step",
+    title: "Debug Hydration Errors Step by Step",
+    body: "A practical walkthrough for narrowing hydration mismatches before asking an AI assistant to diagnose them.",
+  },
+  {
+    href: "/remove-secrets-from-logs-before-sharing",
+    title: "Remove Secrets Before Sharing Logs",
+    body: "A safety-focused tutorial on redacting tokens, customer data, and internal endpoints before sharing debugging output.",
+  },
+  {
+    href: "/common-typescript-errors-ai-misreads",
+    title: "TypeScript Errors AI Misreads",
+    body: "Notes on common TypeScript diagnostics that become easier to misdiagnose when the prompt is cluttered.",
+  },
+  {
+    href: "/share-ci-failures-with-teammates-and-ai",
+    title: "Share CI Failures Better",
+    body: "A short workflow for summarizing CI failures for teammates and AI without pasting a full pipeline transcript.",
+  },
+  {
+    href: "/when-not-to-trim-logs-for-ai",
+    title: "When Not to Trim Logs",
+    body: "A guide to the cases where aggressive compression can hide the real cause instead of clarifying it.",
+  },
+  {
+    href: "/how-contextclean-works",
+    title: "How ContextClean Works",
+    body: "A methodology page explaining the difference between diagnostic signal and surrounding log narration.",
+  },
+  {
+    href: "/ai-debugging-glossary",
+    title: "AI Debugging Glossary",
+    body: "A glossary of terms used across the site's guides for prompts, logs, redaction, and error summaries.",
+  },
+  {
+    href: "/what-makes-a-high-signal-error-report",
+    title: "High-Signal Error Reports",
+    body: "Guidance on what makes an error report useful for AI tools, issue trackers, and teammate handoffs.",
+  },
+  {
+    href: "/who-contextclean-is-for",
+    title: "Who ContextClean Is For",
+    body: "A candid page describing which users and workflows fit the product best and where its limits are.",
+  },
+  {
+    href: "/compare-raw-vs-cleaned-logs",
+    title: "Compare Raw vs Cleaned Logs",
+    body: "A comparison page that explains the behavioral difference between noisy prompts and higher-signal prompts.",
+  },
+  {
+    href: "/editorial-standards",
+    title: "Editorial Standards",
+    body: "A page describing how ContextClean approaches guide quality, examples, boundaries, and maintenance.",
+  },
+  {
+    href: "/site-maintenance-and-review-process",
+    title: "Maintenance and Review Process",
+    body: "A page explaining how the site is reviewed, expanded, and maintained over time.",
+  },
+  {
+    href: "/all-guides",
+    title: "All Guides and Resources",
+    body: "A human-readable site index that groups the educational library into core guides, workflows, reference pages, and examples.",
+  },
 ];
 
 export default function ResourcesPage() {
@@ -119,6 +184,18 @@ export default function ResourcesPage() {
               isolate the real failure, remove low-signal text, add one sentence about
               the expected behavior and one sentence about what changed, then ask the
               AI for a specific next step. These resource pages support that workflow.
+            </p>
+          </div>
+        </section>
+
+        <section className="mt-10 rounded-[28px] border border-emerald-400/15 bg-emerald-300/8 p-6">
+          <h2 className="text-2xl font-semibold text-white">Resource maintenance notes</h2>
+          <div className="mt-4 space-y-3 text-sm leading-7 text-stone-300">
+            <p>Last reviewed: May 25, 2026.</p>
+            <p>Maintained by ContextClean as an evolving developer resource library.</p>
+            <p>
+              Pages in this section are expanded over time with new examples, workflow
+              notes, case studies, and topic-specific references.
             </p>
           </div>
         </section>

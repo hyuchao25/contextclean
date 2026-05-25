@@ -118,6 +118,102 @@ export const pages = [
       "Review recent editorial and product updates across the ContextClean site.",
   },
   {
+    path: "/debug-hydration-errors-step-by-step",
+    title: "Debug Hydration Errors Step by Step - ContextClean",
+    description:
+      "Learn a step-by-step process for narrowing React and Next.js hydration errors before asking AI for help.",
+  },
+  {
+    path: "/remove-secrets-from-logs-before-sharing",
+    title: "Remove Secrets From Logs Before Sharing - ContextClean",
+    description:
+      "Learn how to redact secrets and sensitive data from logs before sharing them with AI tools or teammates.",
+  },
+  {
+    path: "/common-typescript-errors-ai-misreads",
+    title: "Common TypeScript Errors AI Misreads - ContextClean",
+    description:
+      "Read notes on TypeScript diagnostics that are easy for AI assistants to misread when prompts are noisy.",
+  },
+  {
+    path: "/share-ci-failures-with-teammates-and-ai",
+    title: "Share CI Failures With Teammates and AI - ContextClean",
+    description:
+      "Learn how to summarize CI failures clearly for teammates and AI without pasting a full pipeline transcript.",
+  },
+  {
+    path: "/when-not-to-trim-logs-for-ai",
+    title: "When Not to Trim Logs for AI - ContextClean",
+    description:
+      "Learn when aggressive log trimming can hide the real cause instead of helping AI debugging.",
+  },
+  {
+    path: "/how-contextclean-works",
+    title: "How ContextClean Works - ContextClean",
+    description:
+      "Learn the methodology behind ContextClean and how it distinguishes likely signal from likely log noise.",
+  },
+  {
+    path: "/ai-debugging-glossary",
+    title: "AI Debugging Glossary - ContextClean",
+    description:
+      "Read a glossary of terms related to AI debugging prompts, log redaction, and high-signal error reports.",
+  },
+  {
+    path: "/what-makes-a-high-signal-error-report",
+    title: "What Makes a High-Signal Error Report - ContextClean",
+    description:
+      "Learn what makes an error report useful for AI tools, issue trackers, and teammate handoffs.",
+  },
+  {
+    path: "/who-contextclean-is-for",
+    title: "Who ContextClean Is For - ContextClean",
+    description:
+      "Read who ContextClean is designed for and where a different workflow may be more appropriate.",
+  },
+  {
+    path: "/compare-raw-vs-cleaned-logs",
+    title: "Compare Raw vs Cleaned Logs - ContextClean",
+    description:
+      "Compare the effect of raw logs and cleaned logs on AI debugging workflows.",
+  },
+  {
+    path: "/editorial-standards",
+    title: "Editorial Standards - ContextClean",
+    description:
+      "Read the editorial standards used for ContextClean guides, examples, and resource pages.",
+  },
+  {
+    path: "/site-maintenance-and-review-process",
+    title: "Site Maintenance and Review Process - ContextClean",
+    description:
+      "Read how ContextClean content is reviewed, maintained, and expanded over time.",
+  },
+  {
+    path: "/all-guides",
+    title: "All Guides and Resources - ContextClean",
+    description:
+      "Browse the full ContextClean guide library, examples, workflow notes, and reference pages.",
+  },
+  {
+    path: "/case-study-nextjs-hydration-log-cleanup",
+    title: "Case Study: Next.js Hydration Log Cleanup - ContextClean",
+    description:
+      "Read a case study on reducing a noisy Next.js hydration error into a usable AI debugging prompt.",
+  },
+  {
+    path: "/case-study-ci-failure-summary",
+    title: "Case Study: CI Failure Summary - ContextClean",
+    description:
+      "Read a case study on turning a long CI pipeline log into a short, higher-signal failure summary.",
+  },
+  {
+    path: "/case-study-typescript-noise-reduction",
+    title: "Case Study: TypeScript Noise Reduction - ContextClean",
+    description:
+      "Read a case study on reducing a noisy TypeScript compiler message without losing the key mismatch.",
+  },
+  {
     path: "/about",
     title: "About ContextClean",
     description:
