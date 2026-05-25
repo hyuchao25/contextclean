@@ -353,7 +353,52 @@ Cache restored successfully.`,
           <h2 className="mb-4 text-2xl font-bold text-white">
             How to use ContextClean
           </h2>
+          <section className="mt-12 rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+          <h2 className="mb-4 text-2xl font-bold text-white">
+            Why cleaned logs help AI debugging
+          </h2>
 
+          <div className="space-y-4 text-zinc-300">
+            <p>
+              AI coding assistants are sensitive to context quality. When a pasted
+              error log contains repeated lines, dependency internals, package manager
+              output, framework stack frames, or unrelated warnings, the useful error
+              can be buried inside low-signal text.
+            </p>
+
+            <p>
+              ContextClean helps by keeping the most relevant debugging lines while
+              removing common noise patterns. This makes the prompt shorter, easier to
+              read, and more focused on the root cause.
+            </p>
+
+            <p>
+              This is useful when debugging build failures, stack traces, Python
+              tracebacks, React hydration errors, Docker builds, TypeScript compiler
+              output, and CI pipeline failures.
+            </p>
+          </div>
+        </section>
+
+        <section className="mt-12 rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+          <h2 className="mb-4 text-2xl font-bold text-white">
+            What ContextClean does not do
+          </h2>
+
+          <div className="space-y-4 text-zinc-300">
+            <p>
+              ContextClean does not replace debugging. It does not guarantee that every
+              important line is preserved, and it does not verify whether an AI
+              suggestion is correct.
+            </p>
+
+            <p>
+              Always review the cleaned output before sharing it. If the original log
+              contains secrets, tokens, passwords, private customer data, or sensitive
+              source code, remove those details manually before using any online tool.
+            </p>
+          </div>
+        </section>
           <ol className="list-decimal space-y-3 pl-6 text-zinc-300">
             <li>Choose a cleaning mode that matches your error type.</li>
             <li>Paste your raw log, stack trace, traceback, or build failure.</li>
