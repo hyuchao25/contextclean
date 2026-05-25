@@ -1,3 +1,4 @@
+import Link from "next/link";
 import GuideFooter from "../components/GuideFooter";
 import { getPageSeo, siteUrl } from "../seo";
 
@@ -13,66 +14,98 @@ export const metadata = {
 
 export default function CleanTypeScriptErrorForAIPage() {
   return (
-    <main className="min-h-screen bg-black px-6 py-12 text-white">
-      <article className="mx-auto max-w-3xl">
-        <a href="/" className="text-sm text-green-400 hover:text-green-300">← Back to ContextClean</a>
+    <main className="min-h-screen px-4 py-8 text-stone-100 sm:px-6 lg:px-8">
+      <article className="mx-auto max-w-4xl rounded-[32px] border border-white/10 bg-stone-950/80 p-8">
+        <Link href="/" className="text-sm text-emerald-300 hover:text-emerald-200">
+          Back to ContextClean
+        </Link>
 
-        <h1 className="mt-8 mb-6 text-4xl font-bold">
-          Clean TypeScript Errors for AI Debugging
+        <p className="mt-8 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300/80">
+          TypeScript Guide
+        </p>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white">
+          How to clean TypeScript errors before sending them to an AI coding assistant
         </h1>
 
-        <p className="mb-6 text-lg text-zinc-400">
-          TypeScript errors can include long generic types, repeated compiler output,
-          framework paths, and dependency noise. Cleaning them helps AI coding tools
-          focus on the real type issue.
-        </p>
-
-        <h2 className="mt-10 mb-4 text-2xl font-bold">Why TypeScript errors get hard to read</h2>
-        <p className="mb-4 text-zinc-400">
-          Large projects often produce long compiler messages with nested types,
-          repeated file paths, generated code, and unrelated warnings.
-        </p>
-
-        <h2 className="mt-10 mb-4 text-2xl font-bold">What to clean before asking AI</h2>
-        <ul className="mb-6 list-disc space-y-2 pl-6 text-zinc-400">
-          <li>duplicated compiler lines</li>
-          <li>dependency paths</li>
-          <li>generated build output</li>
-          <li>irrelevant warnings</li>
-          <li>low-signal framework messages</li>
-        </ul>
-        <h2 className="mt-10 mb-4 text-2xl font-bold">
-          Useful TypeScript error details to keep
-        </h2>
-
-        <p className="mb-4 text-zinc-400">
-          For TypeScript errors, keep the file path, line number, error code, expected
-          type, received type, and the smallest code snippet that shows the mismatch.
-        </p>
-
-        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
-          <h3 className="mb-2 font-bold text-white">Example</h3>
-          <pre className="overflow-x-auto text-sm text-zinc-400">
-{`src/user.ts:18:10
-Type 'undefined' is not assignable to type 'User'.`}
-          </pre>
+        <div className="mt-6 space-y-5 text-sm leading-7 text-stone-300">
+          <p>
+            TypeScript errors often contain more syntax than signal. Large inferred
+            types, repeated file paths, generated output, and framework wrappers can
+            make a simple mismatch look intimidating. If you trim the error to the core
+            type conflict, the prompt becomes much easier for a model to reason about.
+          </p>
+          <p>
+            The most useful TypeScript prompt usually includes the file path, line
+            number, error code when present, the expected type, the received type, and
+            the smallest code fragment or explanation that clarifies what the variable
+            was supposed to be.
+          </p>
         </div>
 
-        <p className="mb-4 text-zinc-400">
-          Remove repeated compiler output, generated file paths, and unrelated warnings
-          before sending the error to an AI assistant.
-        </p>
-        <h2 className="mt-10 mb-4 text-2xl font-bold">Use ContextClean</h2>
-        <p className="mb-6 text-zinc-400">
-          Paste your TypeScript error into ContextClean, clean it, then send the shorter
-          result to ChatGPT, Claude, Cursor, Codex, or another AI coding assistant.
-        </p>
+        <section className="mt-8 grid gap-4 md:grid-cols-2">
+          <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+            <h2 className="text-2xl font-semibold text-white">Keep</h2>
+            <p className="mt-4 text-sm leading-7 text-stone-300">
+              Error code, file path, line number, expected type, received type, and the
+              nearest application-level declaration that shows the mismatch.
+            </p>
+          </div>
+          <div className="rounded-[28px] border border-amber-400/20 bg-amber-300/8 p-6">
+            <h2 className="text-2xl font-semibold text-white">Reduce</h2>
+            <p className="mt-4 text-sm leading-7 text-stone-300">
+              Duplicated compiler output, deeply nested generated types, and unrelated
+              warnings that do not change the type diagnosis.
+            </p>
+          </div>
+        </section>
 
-        <a href="/" className="inline-block rounded-xl bg-green-500 px-6 py-3 font-bold text-black">
-          Open TypeScript Error Cleaner
-        </a>
+        <section className="mt-10 rounded-[28px] border border-white/10 bg-black/25 p-6">
+          <h2 className="text-2xl font-semibold text-white">Example</h2>
+          <pre className="mt-4 overflow-x-auto rounded-2xl border border-white/10 bg-black/45 p-4 text-sm leading-6 text-stone-300">
+{`src/user.ts:18:10
+Type 'undefined' is not assignable to type 'User'.
+TS2322`}
+          </pre>
+          <p className="mt-4 text-sm leading-7 text-stone-300">
+            This is usually enough for an AI tool to suggest narrowing, guards,
+            initialization, or data-shape fixes without drowning in the full compiler dump.
+          </p>
+        </section>
+
+        <section className="mt-10 rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+          <h2 className="text-2xl font-semibold text-white">
+            Why TypeScript prompts benefit from compression
+          </h2>
+          <div className="mt-4 space-y-4 text-sm leading-7 text-stone-300">
+            <p>
+              TypeScript messages become less useful when too much of the prompt budget
+              is consumed by generic type detail that the model cannot connect back to
+              your actual intent. If the assistant can quickly see the variable, the
+              target type, and the mismatch, the first answer is usually much more direct.
+            </p>
+            <p>
+              ContextClean helps by stripping away the repetitive compiler noise so the
+              error can be paired with one or two lines of human explanation instead.
+            </p>
+          </div>
+        </section>
+
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Link
+            href="/"
+            className="rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-stone-950 hover:bg-emerald-300"
+          >
+            Open TypeScript Error Cleaner
+          </Link>
+          <Link
+            href="/ai-debugging-checklist"
+            className="rounded-full border border-white/12 px-6 py-3 text-sm font-semibold text-white hover:bg-white/[0.05]"
+          >
+            Read the AI debugging checklist
+          </Link>
+        </div>
+
         <GuideFooter />
-
       </article>
     </main>
   );

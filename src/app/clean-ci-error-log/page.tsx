@@ -1,3 +1,4 @@
+import Link from "next/link";
 import GuideFooter from "../components/GuideFooter";
 import { getPageSeo, siteUrl } from "../seo";
 
@@ -13,66 +14,100 @@ export const metadata = {
 
 export default function CleanCIErrorLogPage() {
   return (
-    <main className="min-h-screen bg-black px-6 py-12 text-white">
-      <article className="mx-auto max-w-3xl">
-        <a href="/" className="text-sm text-green-400 hover:text-green-300">← Back to ContextClean</a>
+    <main className="min-h-screen px-4 py-8 text-stone-100 sm:px-6 lg:px-8">
+      <article className="mx-auto max-w-4xl rounded-[32px] border border-white/10 bg-stone-950/80 p-8">
+        <Link href="/" className="text-sm text-emerald-300 hover:text-emerald-200">
+          Back to ContextClean
+        </Link>
 
-        <h1 className="mt-8 mb-6 text-4xl font-bold">
-          Clean CI Error Logs for AI Debugging
+        <p className="mt-8 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300/80">
+          CI Guide
+        </p>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white">
+          How to clean CI error logs before asking AI to explain a failing pipeline
         </h1>
 
-        <p className="mb-6 text-lg text-zinc-400">
-          CI logs from GitHub Actions, GitLab CI, CircleCI, and other pipelines often
-          contain setup output, dependency installation logs, and repeated failure lines.
-        </p>
+        <div className="mt-6 space-y-5 text-sm leading-7 text-stone-300">
+          <p>
+            CI logs are a worst-case prompt format. They mix checkout steps, runner
+            setup, cache restore messages, dependency installation, test execution,
+            build output, teardown steps, and one or two lines that actually explain
+            why the pipeline failed.
+          </p>
+          <p>
+            If you want useful AI help, the right first move is to preserve the failed
+            job, the failed command, the exit code, and the first specific test or build
+            error while reducing all of the setup narration around it.
+          </p>
+        </div>
 
-        <h2 className="mt-10 mb-4 text-2xl font-bold">Why CI logs are hard for AI</h2>
-        <p className="mb-4 text-zinc-400">
-          CI output often mixes the real failure with setup commands, environment logs,
-          build steps, package manager noise, and unrelated warnings.
-        </p>
+        <section className="mt-8 grid gap-4 md:grid-cols-2">
+          <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+            <h2 className="text-2xl font-semibold text-white">Keep</h2>
+            <p className="mt-4 text-sm leading-7 text-stone-300">
+              The job name, step name, failing command, failing test, exit code, and
+              any application file path or compiler message directly tied to the failure.
+            </p>
+          </div>
+          <div className="rounded-[28px] border border-amber-400/20 bg-amber-300/8 p-6">
+            <h2 className="text-2xl font-semibold text-white">Reduce</h2>
+            <p className="mt-4 text-sm leading-7 text-stone-300">
+              Checkout logs, cache restore lines, install progress, post-job cleanup,
+              and repeated command echo are usually unnecessary for a first-pass diagnosis.
+            </p>
+          </div>
+        </section>
 
-        <h2 className="mt-10 mb-4 text-2xl font-bold">What to clean before asking AI</h2>
-        <ul className="mb-6 list-disc space-y-2 pl-6 text-zinc-400">
-          <li>dependency install output</li>
-          <li>setup logs</li>
-          <li>repeated failed command lines</li>
-          <li>cached step messages</li>
-          <li>empty or low-signal lines</li>
-        </ul>
-        <h2 className="mt-10 mb-4 text-2xl font-bold">
-          Useful CI failure details to keep
-        </h2>
-
-        <p className="mb-4 text-zinc-400">
-          For CI debugging, keep the failed job name, failed command, exit code, test
-          failure, and the file path related to the failure.
-        </p>
-
-        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
-          <h3 className="mb-2 font-bold text-white">Example</h3>
-          <pre className="overflow-x-auto text-sm text-zinc-400">
-{`FAIL src/user.test.ts
+        <section className="mt-10 rounded-[28px] border border-white/10 bg-black/25 p-6">
+          <h2 className="text-2xl font-semibold text-white">Example</h2>
+          <pre className="mt-4 overflow-x-auto rounded-2xl border border-white/10 bg-black/45 p-4 text-sm leading-6 text-stone-300">
+{`Job: test
+FAIL src/user.test.ts
 TypeError: Cannot read properties of undefined
 Error: Process completed with exit code 1.`}
           </pre>
+          <p className="mt-4 text-sm leading-7 text-stone-300">
+            This is a much better AI prompt seed than a full pipeline transcript. It
+            already tells the model where the failure happened and what kind of problem
+            caused the job to stop.
+          </p>
+        </section>
+
+        <section className="mt-10 rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+          <h2 className="text-2xl font-semibold text-white">
+            Why shorter CI prompts help more than you think
+          </h2>
+          <div className="mt-4 space-y-4 text-sm leading-7 text-stone-300">
+            <p>
+              CI systems add a lot of operational detail because humans sometimes need
+              it for auditability and reruns. AI models do not benefit from that same
+              bulk when the task is simply “tell me why the pipeline failed and what to
+              check next.”
+            </p>
+            <p>
+              ContextClean helps by cutting the scaffolding around the failure. That
+              makes it easier to read the problem yourself and easier to send a smaller,
+              higher-signal prompt to a coding assistant.
+            </p>
+          </div>
+        </section>
+
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Link
+            href="/"
+            className="rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-stone-950 hover:bg-emerald-300"
+          >
+            Open CI Log Cleaner
+          </Link>
+          <Link
+            href="/resources"
+            className="rounded-full border border-white/12 px-6 py-3 text-sm font-semibold text-white hover:bg-white/[0.05]"
+          >
+            Browse more debugging resources
+          </Link>
         </div>
 
-        <p className="mb-4 text-zinc-400">
-          Remove setup output, cache restore messages, package installation progress,
-          and post-job cleanup lines before asking AI for a fix.
-        </p>
-        <h2 className="mt-10 mb-4 text-2xl font-bold">Use ContextClean</h2>
-        <p className="mb-6 text-zinc-400">
-          Paste your CI error log into ContextClean, clean it, then send the shorter
-          output to ChatGPT, Claude, Cursor, Codex, or another AI coding assistant.
-        </p>
-
-        <a href="/" className="inline-block rounded-xl bg-green-500 px-6 py-3 font-bold text-black">
-          Open CI Log Cleaner
-        </a>
         <GuideFooter />
-
       </article>
     </main>
   );

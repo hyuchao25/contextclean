@@ -103,6 +103,42 @@ const resourceArticles = [
     description:
       "A long-form explainer on how developers should inspect build failures before outsourcing the first read to a model.",
   },
+  {
+    href: "/debugging-prompt-examples",
+    title: "Prompt Examples",
+    description:
+      "Concrete prompt examples for runtime errors, build failures, and test issues.",
+  },
+  {
+    href: "/before-after-log-examples",
+    title: "Before and After Examples",
+    description:
+      "Side-by-side log transformations that show what useful compression actually looks like.",
+  },
+];
+
+const editorialUpdates = [
+  {
+    href: "/editorial-updates",
+    date: "May 2026",
+    title: "Expanded guide pages across Node.js, Python, React, CI, Docker, and Cursor",
+    description:
+      "Major product guides were rewritten into longer, more structured help content with examples and internal cross-links.",
+  },
+  {
+    href: "/resources",
+    date: "May 2026",
+    title: "Launched the resources library",
+    description:
+      "The site now includes a dedicated content hub for AI debugging workflows, prompt hygiene, and log-sharing safety.",
+  },
+  {
+    href: "/before-after-log-examples",
+    date: "May 2026",
+    title: "Added before-and-after log examples",
+    description:
+      "Realistic examples now show how a large noisy log can be reduced to a smaller prompt without losing the core failure signal.",
+  },
 ];
 
 const trustPoints = [
@@ -864,7 +900,7 @@ Cache restored successfully.`,
               knowledge rather than a single thin utility page.
             </p>
           </div>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {resourceArticles.map((article) => (
               <Link
                 key={article.href}
@@ -874,6 +910,44 @@ Cache restored successfully.`,
                 <h3 className="text-xl font-semibold text-white">{article.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-stone-300">
                   {article.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-8 rounded-[32px] border border-white/10 bg-stone-950/80 p-8">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300/80">
+                Latest updates
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold text-white">
+                Recent editorial and product updates on the site
+              </h2>
+            </div>
+            <Link
+              href="/editorial-updates"
+              className="text-sm font-medium text-emerald-300 hover:text-emerald-200"
+            >
+              View update archive
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {editorialUpdates.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-[26px] border border-white/10 bg-white/[0.03] p-5 transition hover:border-emerald-400/40 hover:bg-emerald-300/[0.05]"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-200/80">
+                  {item.date}
+                </p>
+                <h3 className="mt-3 text-xl font-semibold text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-stone-300">
+                  {item.description}
                 </p>
               </Link>
             ))}

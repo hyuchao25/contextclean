@@ -100,6 +100,24 @@ export const pages = [
       "Read build failures more effectively before sending them to AI coding assistants.",
   },
   {
+    path: "/debugging-prompt-examples",
+    title: "Debugging Prompt Examples - ContextClean",
+    description:
+      "Read concrete examples of AI debugging prompts for build errors, runtime crashes, and failing tests.",
+  },
+  {
+    path: "/before-after-log-examples",
+    title: "Before-and-After Log Examples - ContextClean",
+    description:
+      "See side-by-side examples of noisy logs transformed into cleaner AI debugging prompts.",
+  },
+  {
+    path: "/editorial-updates",
+    title: "Editorial Updates - ContextClean",
+    description:
+      "Review recent editorial and product updates across the ContextClean site.",
+  },
+  {
     path: "/about",
     title: "About ContextClean",
     description:

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import GuideFooter from "../components/GuideFooter";
 import { getPageSeo, siteUrl } from "../seo";
 
@@ -13,67 +14,106 @@ export const metadata = {
 
 export default function CleanReactErrorStackPage() {
   return (
-    <main className="min-h-screen bg-black px-6 py-12 text-white">
-      <article className="mx-auto max-w-3xl">
-        <a href="/" className="text-sm text-green-400 hover:text-green-300">← Back to ContextClean</a>
+    <main className="min-h-screen px-4 py-8 text-stone-100 sm:px-6 lg:px-8">
+      <article className="mx-auto max-w-4xl rounded-[32px] border border-white/10 bg-stone-950/80 p-8">
+        <Link href="/" className="text-sm text-emerald-300 hover:text-emerald-200">
+          Back to ContextClean
+        </Link>
 
-        <h1 className="mt-8 mb-6 text-4xl font-bold">
-          Clean React Error Stacks for AI Coding Tools
+        <p className="mt-8 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300/80">
+          React Guide
+        </p>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white">
+          How to clean React error stacks so AI can focus on your component instead of framework noise
         </h1>
 
-        <p className="mb-6 text-lg text-zinc-400">
-          React and Next.js errors often include component stacks, build output,
-          framework paths, and repeated runtime messages. ContextClean helps shorten
-          them before sending them to AI tools.
-        </p>
-
-        <h2 className="mt-10 mb-4 text-2xl font-bold">Why React errors get noisy</h2>
-        <p className="mb-4 text-zinc-400">
-          React apps can produce long error output from hydration warnings, component
-          stacks, webpack, Next.js internals, and browser console logs.
-        </p>
-
-        <h2 className="mt-10 mb-4 text-2xl font-bold">What ContextClean helps remove</h2>
-        <ul className="mb-6 list-disc space-y-2 pl-6 text-zinc-400">
-          <li>duplicated console lines</li>
-          <li>webpack output</li>
-          <li>Next.js internal frames</li>
-          <li>low-signal component stack noise</li>
-          <li>empty lines and repeated messages</li>
-        </ul>
-        <h2 className="mt-10 mb-4 text-2xl font-bold">
-          Useful React error details to keep
-        </h2>
-
-        <p className="mb-4 text-zinc-400">
-          For React debugging, keep the first error message, the component name, your
-          source file path, and the line number. These details help AI tools identify
-          whether the problem is caused by props, state, hooks, rendering, or hydration.
-        </p>
-
-        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
-          <h3 className="mb-2 font-bold text-white">Example</h3>
-          <pre className="overflow-x-auto text-sm text-zinc-400">
-{`Error: Hydration failed because the initial UI does not match.
-Header (src/components/Header.tsx:15:3)`}
-          </pre>
+        <div className="mt-6 space-y-5 text-sm leading-7 text-stone-300">
+          <p>
+            React and Next.js errors often arrive as a mixture of component stacks,
+            hydration warnings, console messages, bundler output, and internal frames.
+            The app-level problem might be simple, but the surrounding context makes it
+            look larger and harder to reason about than it really is.
+          </p>
+          <p>
+            For AI debugging, the most important lines are usually the first visible
+            error message, the component name, the project file path, and the line that
+            points back to your code. The rest is often helpful only after the first
+            diagnosis has already been made.
+          </p>
         </div>
 
-        <p className="mb-4 text-zinc-400">
-          Remove repeated framework traces and browser console noise unless they point
-          to your own component or a specific rendering mismatch.
-        </p>
-        <h2 className="mt-10 mb-4 text-2xl font-bold">Use the React error cleaner</h2>
-        <p className="mb-6 text-zinc-400">
-          Paste your React error stack into ContextClean, clean it, then ask ChatGPT,
-          Claude, Cursor, or Codex to debug the shorter version.
-        </p>
+        <section className="mt-8 grid gap-4 md:grid-cols-3">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+            <h2 className="text-lg font-semibold text-white">Rendering errors</h2>
+            <p className="mt-2 text-sm leading-6 text-stone-300">
+              Preserve the component name, prop shape problem, and the file where the
+              render failed.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+            <h2 className="text-lg font-semibold text-white">Hydration errors</h2>
+            <p className="mt-2 text-sm leading-6 text-stone-300">
+              Keep the first hydration warning and the component path that likely caused
+              the server and client output to diverge.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+            <h2 className="text-lg font-semibold text-white">Hook issues</h2>
+            <p className="mt-2 text-sm leading-6 text-stone-300">
+              Keep the hook name, invalid call message, and the nearest application file
+              involved in the stack.
+            </p>
+          </div>
+        </section>
 
-        <a href="/" className="inline-block rounded-xl bg-green-500 px-6 py-3 font-bold text-black">
-          Open React Error Cleaner
-        </a>
+        <section className="mt-10 rounded-[28px] border border-white/10 bg-black/25 p-6">
+          <h2 className="text-2xl font-semibold text-white">Example</h2>
+          <pre className="mt-4 overflow-x-auto rounded-2xl border border-white/10 bg-black/45 p-4 text-sm leading-6 text-stone-300">
+{`Error: Hydration failed because the initial UI does not match.
+Header (src/components/Header.tsx:15:3)
+Route: /dashboard`}
+          </pre>
+          <p className="mt-4 text-sm leading-7 text-stone-300">
+            This is enough for an AI tool to reason about server-client divergence,
+            unstable rendering, or conditional output without being distracted by the
+            full framework stack.
+          </p>
+        </section>
+
+        <section className="mt-10 rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+          <h2 className="text-2xl font-semibold text-white">
+            Why React logs are easy to over-expand
+          </h2>
+          <div className="mt-4 space-y-4 text-sm leading-7 text-stone-300">
+            <p>
+              Modern React apps sit behind the browser console, the bundler, the route
+              layer, and often a framework runtime. That means a single prop or render
+              mismatch can produce a stack that looks much more complex than the bug.
+            </p>
+            <p>
+              A cleaner prompt does not hide important context. It removes the parts
+              that are least likely to change the diagnosis on the first pass, so the
+              component-level issue becomes visible immediately.
+            </p>
+          </div>
+        </section>
+
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Link
+            href="/"
+            className="rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-stone-950 hover:bg-emerald-300"
+          >
+            Open React Error Cleaner
+          </Link>
+          <Link
+            href="/how-to-read-build-errors-before-asking-ai"
+            className="rounded-full border border-white/12 px-6 py-3 text-sm font-semibold text-white hover:bg-white/[0.05]"
+          >
+            Read the build error workflow guide
+          </Link>
+        </div>
+
         <GuideFooter />
-
       </article>
     </main>
   );

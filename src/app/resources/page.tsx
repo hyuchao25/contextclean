@@ -27,12 +27,27 @@ const resources = [
     title: "How to Read Build Errors Before Asking AI",
     body: "A practical reminder that the first useful debugging step is still a human read of the build output, not blind prompt forwarding.",
   },
+  {
+    href: "/debugging-prompt-examples",
+    title: "Debugging Prompt Examples",
+    body: "Concrete examples of short, high-signal prompts for runtime crashes, build failures, and failing tests.",
+  },
+  {
+    href: "/before-after-log-examples",
+    title: "Before-and-After Log Examples",
+    body: "Side-by-side examples showing how large logs can be reduced into smaller, more reviewable AI debugging inputs.",
+  },
+  {
+    href: "/editorial-updates",
+    title: "Editorial Updates",
+    body: "A summary page showing that the site is actively maintained and expanded over time.",
+  },
 ];
 
 export default function ResourcesPage() {
   return (
     <main className="min-h-screen px-4 py-8 text-stone-100 sm:px-6 lg:px-8">
-      <section className="mx-auto max-w-5xl rounded-[32px] border border-white/10 bg-stone-950/80 p-8">
+      <section className="mx-auto max-w-6xl rounded-[32px] border border-white/10 bg-stone-950/80 p-8">
         <Link href="/" className="text-sm text-emerald-300 hover:text-emerald-200">
           Back to ContextClean
         </Link>
@@ -44,7 +59,7 @@ export default function ResourcesPage() {
           Resources for better AI debugging prompts, safer log sharing, and cleaner developer workflows
         </h1>
         <p className="mt-6 max-w-3xl text-sm leading-7 text-stone-300">
-          ContextClean is a narrow utility, but the workflow around it is broader.
+          ContextClean is a focused utility, but the workflow around it is broader.
           Developers still need to decide what context matters, what should never be
           shared, and how to phrase a debugging prompt so the model can do useful work.
           This resource section exists to make those decisions more explicit.
@@ -54,15 +69,15 @@ export default function ResourcesPage() {
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
             <h2 className="text-lg font-semibold text-white">Operational value</h2>
             <p className="mt-2 text-sm leading-6 text-stone-300">
-              Better debugging prompts can reduce wasted back-and-forth when a model
-              is distracted by noise or missing the actual failing line.
+              Better debugging prompts reduce wasted back-and-forth when a model is
+              distracted by noise or misses the actual failing line.
             </p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
             <h2 className="text-lg font-semibold text-white">Safety value</h2>
             <p className="mt-2 text-sm leading-6 text-stone-300">
-              Shorter logs are easier to inspect for secrets and internal details
-              before they are shared with another person or system.
+              Shorter logs are easier to inspect for secrets, customer data, and
+              internal details before they are shared with another system.
             </p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
@@ -74,7 +89,7 @@ export default function ResourcesPage() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
+        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {resources.map((resource) => (
             <Link
               key={resource.href}
@@ -94,7 +109,7 @@ export default function ResourcesPage() {
           <div className="mt-4 space-y-4 text-sm leading-7 text-stone-300">
             <p>
               The most common failure mode in AI-assisted debugging is not the model
-              being “bad.” It is the input being cluttered, incomplete, or risky to
+              being bad. It is the input being cluttered, incomplete, or risky to
               share. Developers often paste everything they see, including build noise,
               redundant frames, and sensitive details that were never needed to debug
               the issue in the first place.
