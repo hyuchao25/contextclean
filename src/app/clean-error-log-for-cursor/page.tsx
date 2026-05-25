@@ -49,7 +49,30 @@ export default function CleanErrorLogForCursorPage() {
           <li>empty lines</li>
           <li>low-signal runtime output</li>
         </ul>
+        <h2 className="mt-10 mb-4 text-2xl font-bold">
+          How to prepare logs for Cursor
+        </h2>
 
+        <p className="mb-4 text-zinc-400">
+          Cursor works best when the prompt includes the real error, the relevant file,
+          and the expected behavior. Long noisy logs can make the Composer or Chat focus
+          on framework internals instead of the code you want changed.
+        </p>
+
+        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+          <h3 className="mb-2 font-bold text-white">Useful prompt format</h3>
+          <pre className="overflow-x-auto text-sm text-zinc-400">
+{`Please debug this error.
+Relevant file: src/api/user.ts
+Error: Cannot read properties of undefined
+Expected result: return a valid user object`}
+          </pre>
+        </div>
+
+        <p className="mb-4 text-zinc-400">
+          After cleaning the log, paste the shorter version into Cursor with the file or
+          folder you want Cursor to edit.
+        </p>
         <h2 className="mt-10 mb-4 text-2xl font-bold">
           Use the free Cursor log cleaner
         </h2>

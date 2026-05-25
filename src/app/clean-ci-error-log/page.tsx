@@ -40,7 +40,28 @@ export default function CleanCIErrorLogPage() {
           <li>cached step messages</li>
           <li>empty or low-signal lines</li>
         </ul>
+        <h2 className="mt-10 mb-4 text-2xl font-bold">
+          Useful CI failure details to keep
+        </h2>
 
+        <p className="mb-4 text-zinc-400">
+          For CI debugging, keep the failed job name, failed command, exit code, test
+          failure, and the file path related to the failure.
+        </p>
+
+        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+          <h3 className="mb-2 font-bold text-white">Example</h3>
+          <pre className="overflow-x-auto text-sm text-zinc-400">
+{`FAIL src/user.test.ts
+TypeError: Cannot read properties of undefined
+Error: Process completed with exit code 1.`}
+          </pre>
+        </div>
+
+        <p className="mb-4 text-zinc-400">
+          Remove setup output, cache restore messages, package installation progress,
+          and post-job cleanup lines before asking AI for a fix.
+        </p>
         <h2 className="mt-10 mb-4 text-2xl font-bold">Use ContextClean</h2>
         <p className="mb-6 text-zinc-400">
           Paste your CI error log into ContextClean, clean it, then send the shorter

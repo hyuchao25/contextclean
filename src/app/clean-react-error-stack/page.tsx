@@ -41,7 +41,28 @@ export default function CleanReactErrorStackPage() {
           <li>low-signal component stack noise</li>
           <li>empty lines and repeated messages</li>
         </ul>
+        <h2 className="mt-10 mb-4 text-2xl font-bold">
+          Useful React error details to keep
+        </h2>
 
+        <p className="mb-4 text-zinc-400">
+          For React debugging, keep the first error message, the component name, your
+          source file path, and the line number. These details help AI tools identify
+          whether the problem is caused by props, state, hooks, rendering, or hydration.
+        </p>
+
+        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+          <h3 className="mb-2 font-bold text-white">Example</h3>
+          <pre className="overflow-x-auto text-sm text-zinc-400">
+{`Error: Hydration failed because the initial UI does not match.
+Header (src/components/Header.tsx:15:3)`}
+          </pre>
+        </div>
+
+        <p className="mb-4 text-zinc-400">
+          Remove repeated framework traces and browser console noise unless they point
+          to your own component or a specific rendering mismatch.
+        </p>
         <h2 className="mt-10 mb-4 text-2xl font-bold">Use the React error cleaner</h2>
         <p className="mb-6 text-zinc-400">
           Paste your React error stack into ContextClean, clean it, then ask ChatGPT,
