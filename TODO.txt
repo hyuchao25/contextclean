@@ -73,3 +73,22 @@ Next:
 - Monitor Vercel Analytics
 - Improve pages based on real traffic
 - Consider adding more SEO pages only after data appears
+- AdSense low-value content warning received
+- Improved homepage content quality:
+  - Why cleaned logs help AI debugging
+  - What ContextClean does not do
+  - Supported log types
+  - Before / after example
+- Improved high-traffic pages:
+  - /about
+  - /clean-docker-build-log
+  - /clean-nextjs-build-error
+- Improved language-specific pages:
+  - /clean-nodejs-error-log
+  - /clean-python-traceback-for-ai
+  - /clean-typescript-error-for-ai
+  - /clean-react-error-stack
+  - /clean-ci-error-log
+  - /clean-error-log-for-cursor
+  - /clean-ai-coding-prompt-context
+  - /reduce-debugging-context-for-ai
