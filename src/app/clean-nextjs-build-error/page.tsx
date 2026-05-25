@@ -41,7 +41,30 @@ export default function CleanNextJSBuildErrorPage() {
           <li>duplicated build messages</li>
           <li>low-signal runtime output</li>
         </ul>
+        <h2 className="mt-10 mb-4 text-2xl font-bold">
+          What matters in a Next.js build error
+        </h2>
 
+        <p className="mb-4 text-zinc-400">
+          Next.js build output can include route compilation, Turbopack or webpack
+          messages, server component traces, hydration warnings, and dependency paths.
+          AI tools usually need the first real error, the file path, and the line number.
+        </p>
+
+        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+          <h3 className="mb-2 font-bold text-white">Example</h3>
+          <pre className="overflow-x-auto text-sm text-zinc-400">
+{`Build error occurred
+Module not found: Can't resolve './globals.css'
+./src/app/layout.tsx (2:1)`}
+          </pre>
+        </div>
+
+        <p className="mb-4 text-zinc-400">
+          Keep the exact error message and the file location. Remove repeated compiled
+          output, long dependency traces, and unrelated warnings before asking AI for a
+          minimal fix.
+        </p>
         <h2 className="mt-10 mb-4 text-2xl font-bold">Use ContextClean</h2>
         <p className="mb-6 text-zinc-400">
           Paste your Next.js build error into ContextClean, clean it, then send the

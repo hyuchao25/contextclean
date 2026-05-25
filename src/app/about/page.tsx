@@ -55,6 +55,24 @@ export default function AboutPage() {
           You should still avoid pasting passwords, API keys, tokens, customer data,
           or confidential information into any online tool.
         </p>
+        <h2 className="mt-10 mb-4 text-2xl font-bold">How ContextClean is built</h2>
+
+<p className="mb-4 text-zinc-400">
+  ContextClean is intentionally small and focused. It does not try to replace
+  a full IDE, debugger, or AI coding assistant. Instead, it prepares cleaner
+  text so those tools can work with better input.
+</p>
+
+<p className="mb-4 text-zinc-400">
+  The cleaning rules are designed around common real-world debugging noise:
+  dependency folders, repeated stack frames, build system messages, package
+  manager output, and low-signal runtime lines.
+</p>
+
+<p className="text-zinc-400">
+  Future improvements will focus on better language-specific cleaning modes,
+  clearer examples, and more practical debugging workflows.
+</p>
       </section>
     </main>
   );

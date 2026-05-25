@@ -40,7 +40,30 @@ export default function CleanDockerBuildLogPage() {
           <li>empty lines</li>
           <li>unrelated warnings</li>
         </ul>
+        <h2 className="mt-10 mb-4 text-2xl font-bold">
+          Common Docker build log patterns
+        </h2>
 
+        <p className="mb-4 text-zinc-400">
+          Docker logs often mix useful failure messages with long installation output.
+          For AI debugging, the most useful lines are usually the failed command, the
+          first clear error message, and the Dockerfile step where the failure happened.
+        </p>
+
+        <div className="mb-6 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+          <h3 className="mb-2 font-bold text-white">Example</h3>
+          <pre className="overflow-x-auto text-sm text-zinc-400">
+{`Step 4/8 : RUN npm run build
+Error: Cannot find module 'next'
+The command '/bin/sh -c npm run build' returned a non-zero code: 1`}
+          </pre>
+        </div>
+
+        <p className="mb-4 text-zinc-400">
+          Before pasting a Docker log into an AI assistant, remove repeated package
+          installation lines, cached layer output, and progress messages unless they
+          directly explain the failure.
+        </p>
         <h2 className="mt-10 mb-4 text-2xl font-bold">Use ContextClean</h2>
         <p className="mb-6 text-zinc-400">
           Paste your Docker build log into ContextClean, clean it, then send the shorter
