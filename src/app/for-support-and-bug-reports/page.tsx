@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SupportTriageVisual } from "../components/VisualShowcase";
 import { getPageSeo, siteUrl } from "../seo";
 
 const seo = getPageSeo("/for-support-and-bug-reports");
@@ -68,6 +69,10 @@ export default function ForSupportAndBugReportsPage() {
             values, preserve the error and context, then escalate a smaller version.
           </p>
         </div>
+
+        <section className="mt-8">
+          <SupportTriageVisual />
+        </section>
 
         <section className="mt-8 grid gap-4 md:grid-cols-2">
           {triageSteps.map((step) => (

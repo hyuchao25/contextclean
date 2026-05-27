@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { HeroTerminalVisual, WorkflowMapVisual } from "./components/VisualShowcase";
 
 const modeDescriptions: Record<
   string,
@@ -527,6 +528,8 @@ Cache restored successfully.`,
           </div>
 
           <aside className="grid gap-4">
+            <HeroTerminalVisual />
+
             <div className="rounded-[28px] border border-white/10 bg-stone-950/80 p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-300/80">
                 Current mode
@@ -728,6 +731,10 @@ Cache restored successfully.`,
               <p className="mt-3 text-sm leading-7 text-stone-300">{step.body}</p>
             </article>
           ))}
+        </section>
+
+        <section className="mt-8">
+          <WorkflowMapVisual />
         </section>
 
         <section className="mt-8 rounded-[32px] border border-white/10 bg-stone-950/80 p-8">

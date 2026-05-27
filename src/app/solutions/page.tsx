@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { WorkflowMapVisual } from "../components/VisualShowcase";
 import { getPageSeo, siteUrl } from "../seo";
 
 const seo = getPageSeo("/solutions");
@@ -78,6 +79,10 @@ export default function SolutionsPage() {
           focused cleanup step that helps people turn noisy logs into clearer,
           reviewable context before sharing them with teammates or AI tools.
         </p>
+
+        <section className="mt-8">
+          <WorkflowMapVisual />
+        </section>
 
         <div className="mt-8 grid gap-4 lg:grid-cols-3">
           {solutionAreas.map((area) => (

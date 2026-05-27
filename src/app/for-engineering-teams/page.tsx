@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TeamHandoffVisual } from "../components/VisualShowcase";
 import { getPageSeo, siteUrl } from "../seo";
 
 const seo = getPageSeo("/for-engineering-teams");
@@ -69,6 +70,10 @@ export default function ForEngineeringTeamsPage() {
             pull request, issue, Slack thread, support escalation, or AI prompt.
           </p>
         </div>
+
+        <section className="mt-8">
+          <TeamHandoffVisual />
+        </section>
 
         <section className="mt-8 grid gap-4 md:grid-cols-3">
           {[
