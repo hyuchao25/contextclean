@@ -214,6 +214,30 @@ export const pages = [
       "Read a case study on reducing a noisy TypeScript compiler message without losing the key mismatch.",
   },
   {
+    path: "/solutions",
+    title: "Solutions for AI Debugging Workflows - ContextClean",
+    description:
+      "Explore ContextClean use cases for developers, engineering teams, support triage, and AI-assisted debugging workflows.",
+  },
+  {
+    path: "/for-engineering-teams",
+    title: "ContextClean for Engineering Teams",
+    description:
+      "Learn how engineering teams can use ContextClean to share cleaner logs in pull requests, issues, and AI debugging threads.",
+  },
+  {
+    path: "/for-support-and-bug-reports",
+    title: "ContextClean for Support and Bug Reports",
+    description:
+      "Learn how support teams can reduce noisy logs before escalating bug reports to engineering or AI tools.",
+  },
+  {
+    path: "/ai-debugging-workflow-templates",
+    title: "AI Debugging Workflow Templates - ContextClean",
+    description:
+      "Use reusable prompt templates for build failures, runtime crashes, CI failures, and AI debugging handoffs.",
+  },
+  {
     path: "/about",
     title: "About ContextClean",
     description:

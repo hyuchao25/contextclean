@@ -169,6 +169,33 @@ const useCases = [
   "Removing repeated stack frames before saving a debugging note.",
 ];
 
+const businessUseCases = [
+  {
+    href: "/solutions",
+    title: "Developer Workflow Solutions",
+    description:
+      "Use ContextClean as a lightweight step between noisy terminal output and clearer AI-assisted debugging.",
+  },
+  {
+    href: "/for-engineering-teams",
+    title: "For Engineering Teams",
+    description:
+      "Create cleaner handoffs for pull requests, CI failures, code review comments, and internal debugging threads.",
+  },
+  {
+    href: "/for-support-and-bug-reports",
+    title: "For Support and Bug Reports",
+    description:
+      "Turn long user-reported logs into smaller summaries that are easier to inspect, redact, and escalate.",
+  },
+  {
+    href: "/ai-debugging-workflow-templates",
+    title: "Workflow Templates",
+    description:
+      "Reusable prompt and report formats for build failures, runtime crashes, failing tests, and deployment issues.",
+  },
+];
+
 const workflowSteps = [
   {
     title: "1. Pick the closest mode",
@@ -435,6 +462,15 @@ Cache restored successfully.`,
             </p>
           </div>
           <nav className="flex flex-wrap gap-3 text-sm text-stone-300">
+            <Link href="/resources" className="rounded-full border border-white/10 px-4 py-2 hover:border-emerald-400/60 hover:text-white">
+              Resources
+            </Link>
+            <Link href="/solutions" className="rounded-full border border-white/10 px-4 py-2 hover:border-emerald-400/60 hover:text-white">
+              Solutions
+            </Link>
+            <Link href="/all-guides" className="rounded-full border border-white/10 px-4 py-2 hover:border-emerald-400/60 hover:text-white">
+              Guides
+            </Link>
             <Link href="/about" className="rounded-full border border-white/10 px-4 py-2 hover:border-emerald-400/60 hover:text-white">
               About
             </Link>
@@ -692,6 +728,38 @@ Cache restored successfully.`,
               <p className="mt-3 text-sm leading-7 text-stone-300">{step.body}</p>
             </article>
           ))}
+        </section>
+
+        <section className="mt-8 rounded-[32px] border border-white/10 bg-stone-950/80 p-8">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300/80">
+                Business use cases
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold text-white">
+                Practical workflows for developers, teams, and support handoffs
+              </h2>
+            </div>
+            <p className="max-w-2xl text-sm leading-6 text-stone-300">
+              ContextClean can sit inside existing workflows without requiring a new
+              platform: clean the noisy log, review the result, then share a smaller
+              prompt or failure summary with the right person or AI assistant.
+            </p>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {businessUseCases.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-[26px] border border-white/10 bg-white/[0.03] p-5 transition hover:border-emerald-400/40 hover:bg-emerald-300/[0.05]"
+              >
+                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-stone-300">
+                  {item.description}
+                </p>
+              </Link>
+            ))}
+          </div>
         </section>
 
         <section className="mt-8 grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">

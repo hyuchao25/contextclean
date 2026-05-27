@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { siteUrl } from "./seo";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -15,9 +16,27 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "ContextClean - Clean Logs & Stack Traces for AI",
   description:
     "Clean noisy logs and stack traces before sending them to ChatGPT, Claude, Cursor, Codex, or other AI coding tools.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "ContextClean - Clean Logs & Stack Traces for AI",
+    description:
+      "Clean noisy logs and stack traces before sending them to AI coding tools.",
+    url: siteUrl,
+    siteName: "ContextClean",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "ContextClean - Clean Logs & Stack Traces for AI",
+    description:
+      "Clean noisy logs and stack traces before sending them to AI coding tools.",
+  },
 };
 
 export default function RootLayout({

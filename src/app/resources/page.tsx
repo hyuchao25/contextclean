@@ -107,6 +107,26 @@ const resources = [
     title: "All Guides and Resources",
     body: "A human-readable site index that groups the educational library into core guides, workflows, reference pages, and examples.",
   },
+  {
+    href: "/solutions",
+    title: "Solutions",
+    body: "Business and workflow use cases for developers, engineering teams, support triage, and AI-assisted debugging.",
+  },
+  {
+    href: "/for-engineering-teams",
+    title: "For Engineering Teams",
+    body: "Team-oriented guidance for using cleaned logs in pull requests, CI triage, issue reports, and async debugging handoffs.",
+  },
+  {
+    href: "/for-support-and-bug-reports",
+    title: "For Support and Bug Reports",
+    body: "A practical support workflow for reducing noisy user logs before escalating them to engineering or AI tools.",
+  },
+  {
+    href: "/ai-debugging-workflow-templates",
+    title: "AI Debugging Workflow Templates",
+    body: "Reusable prompt and handoff formats for build failures, runtime crashes, and CI failures.",
+  },
 ];
 
 export default function ResourcesPage() {

@@ -57,6 +57,15 @@ const guideGroups = [
       ["/case-study-typescript-noise-reduction", "Case Study: TypeScript Noise Reduction"],
     ],
   },
+  {
+    title: "Business Workflows",
+    links: [
+      ["/solutions", "Solutions"],
+      ["/for-engineering-teams", "For Engineering Teams"],
+      ["/for-support-and-bug-reports", "For Support and Bug Reports"],
+      ["/ai-debugging-workflow-templates", "AI Debugging Workflow Templates"],
+    ],
+  },
 ];
 
 export default function AllGuidesPage() {
@@ -74,7 +83,7 @@ export default function AllGuidesPage() {
           All ContextClean guides, examples, references, and workflow pages
         </h1>
         <p className="mt-6 max-w-4xl text-sm leading-7 text-stone-300">
-          This page is a human-readable index of the site's main educational content.
+          This page is a human-readable index of the site content library.
           It exists so visitors can browse the library by topic instead of landing on a
           single tool page and leaving immediately.
         </p>
@@ -105,7 +114,7 @@ export default function AllGuidesPage() {
           <h2 className="text-2xl font-semibold text-white">Index maintenance notes</h2>
           <div className="mt-4 space-y-3 text-sm leading-7 text-stone-300">
             <p>Last reviewed: May 25, 2026.</p>
-            <p>Maintained by ContextClean as a human-readable index of the site's educational pages.</p>
+            <p>Maintained by ContextClean as a human-readable index of the educational pages.</p>
             <p>
               New guides, examples, reference pages, and case studies are added here as
               the library expands.
