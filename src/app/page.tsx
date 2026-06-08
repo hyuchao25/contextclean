@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AiNewsFeed } from "./components/AiNewsFeed";
 import CleanerWorkbench from "./components/CleanerWorkbench";
 import { HeroTerminalVisual, WorkflowMapVisual } from "./components/VisualShowcase";
+import { getAiNews } from "./lib/ai-news";
 import { defaultDescription, siteUrl } from "./seo";
+
+export const revalidate = 21_600;
 
 export const metadata: Metadata = {
   title: "ContextClean - Free Local Log Cleaner for AI Debugging",
@@ -58,7 +62,8 @@ const faq = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const latestNews = await getAiNews(3);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -136,6 +141,30 @@ export default function Home() {
           <div className="mt-8">
             <WorkflowMapVisual />
           </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="mb-7 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-3xl">
+              <p className="font-mono text-xs tracking-[0.22em] text-emerald-300">
+                AI NEWS RADAR
+              </p>
+              <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white">
+                Fresh signals from official AI and developer sources.
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-stone-300">
+                Recent model, research, coding, open-source, and safety updates.
+                Every item links to the original publisher; no recycled rumor posts.
+              </p>
+            </div>
+            <Link
+              href="/ai-news"
+              className="shrink-0 rounded-full border border-white/15 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-white/[0.05]"
+            >
+              Open the full radar
+            </Link>
+          </div>
+          <AiNewsFeed items={latestNews} compact />
         </section>
 
         <section className="grid gap-5 lg:grid-cols-3">

@@ -16,6 +16,12 @@ export const pages = [
       "Practical guides for reading errors, preserving diagnostic evidence, redacting secrets, and writing better debugging requests.",
   },
   {
+    path: "/ai-news",
+    title: "AI News Radar - Official Model, Research and Developer Updates",
+    description:
+      "A frequently refreshed AI news feed built from official OpenAI, Google AI, Hugging Face, GitHub, and Microsoft Research sources.",
+  },
+  {
     path: "/community",
     title: "AI Debugging Community Discussions - ContextClean",
     description:

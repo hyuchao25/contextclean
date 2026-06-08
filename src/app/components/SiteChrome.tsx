@@ -1,8 +1,10 @@
 import Link from "next/link";
+import PrivacySettingsLink from "./PrivacySettingsLink";
 
 const navigation = [
   { href: "/", label: "Log Cleaner" },
   { href: "/prompt-clinic", label: "Prompt Clinic" },
+  { href: "/ai-news", label: "AI News" },
   { href: "/resources", label: "Resources" },
   { href: "/field-notes", label: "AI Field Notes" },
   { href: "/before-after-log-examples", label: "Examples" },
@@ -59,8 +61,10 @@ export function SiteFooter() {
           <Link href="/about" className="hover:text-white">About</Link>
           <Link href="/contact" className="hover:text-white">Contact</Link>
           <Link href="/privacy" className="hover:text-white">Privacy</Link>
+          <PrivacySettingsLink />
           <Link href="/terms" className="hover:text-white">Terms</Link>
           <Link href="/prompt-clinic" className="hover:text-white">Prompt Clinic</Link>
+          <Link href="/ai-news" className="hover:text-white">AI News</Link>
           <Link href="/field-notes" className="hover:text-white">AI Field Notes</Link>
           <Link href="/community" className="hover:text-white">Community</Link>
         </nav>

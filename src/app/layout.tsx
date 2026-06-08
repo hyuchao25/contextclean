@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import AdSenseScript from "./components/AdSenseScript";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
-import { siteUrl } from "./seo";
+import { defaultDescription, siteUrl } from "./seo";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -18,25 +19,30 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "ContextClean - Clean Logs & Stack Traces for AI",
-  description:
-    "Clean noisy logs and stack traces before sending them to ChatGPT, Claude, Cursor, Codex, or other AI coding tools.",
+  title: {
+    default: "ContextClean - AI Debugging Toolkit",
+    template: "%s",
+  },
+  description: defaultDescription,
+  applicationName: "ContextClean",
+  category: "developer tools",
+  creator: "ContextClean",
+  publisher: "ContextClean",
+  manifest: "/manifest.webmanifest",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "ContextClean - Clean Logs & Stack Traces for AI",
-    description:
-      "Clean noisy logs and stack traces before sending them to AI coding tools.",
+    title: "ContextClean - AI Debugging Toolkit",
+    description: defaultDescription,
     url: siteUrl,
     siteName: "ContextClean",
     type: "website",
   },
   twitter: {
-    card: "summary",
-    title: "ContextClean - Clean Logs & Stack Traces for AI",
-    description:
-      "Clean noisy logs and stack traces before sending them to AI coding tools.",
+    card: "summary_large_image",
+    title: "ContextClean - AI Debugging Toolkit",
+    description: defaultDescription,
   },
 };
 
@@ -45,21 +51,32 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "ContextClean",
+    url: siteUrl,
+    sameAs: ["https://github.com/hyuchao25/contextclean"],
+  };
+
   return (
     <html
       lang="en"
       className={`${spaceGrotesk.variable} ${ibmPlexMono.variable}`}
     >
-      <head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6232467855116032"
-          crossOrigin="anonymous"
-        ></script>
-      </head>
       <body>
+        <AdSenseScript />
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
+        />
         <SiteHeader />
-        {children}
+        <div id="main-content" tabIndex={-1}>
+          {children}
+        </div>
         <SiteFooter />
         <Analytics />
       </body>

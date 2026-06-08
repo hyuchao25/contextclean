@@ -20,6 +20,7 @@ const collections = [
       ["/before-after-log-examples", "Before-and-after examples", "See realistic transformations and the reasoning behind each one."],
       ["/field-notes", "AI coding field notes", "Failure patterns, counter-prompts, polls, jokes, and an answer smell detector."],
       ["/prompt-clinic", "Prompt clinic", "Score a debugging request and practice evidence-driven scenarios."],
+      ["/ai-news", "AI news radar", "Track fresh model, research, coding, open-source, and safety updates from official publishers."],
     ],
   },
   {

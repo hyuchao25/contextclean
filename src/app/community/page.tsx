@@ -22,6 +22,36 @@ type GitHubIssue = {
   pull_request?: unknown;
 };
 
+const starterTopics = [
+  {
+    title: "How much stack trace is enough?",
+    tension:
+      "Removing framework frames makes a report readable, but trimming too early can hide an async boundary or the caller that supplied the bad value.",
+    discuss:
+      "Compare the first application frame, the nearest framework boundary, and the final exception. Which line would change your diagnosis if it disappeared?",
+    boundary:
+      "Replace private paths and identifiers, but preserve frame order, function names, package versions, and the exception chain.",
+  },
+  {
+    title: "Should an AI propose code before proving the cause?",
+    tension:
+      "A plausible patch can stop the visible error while leaving the incorrect state or broken contract in place.",
+    discuss:
+      "Ask for two competing hypotheses and one discriminating check. What result would rule out the assistant's preferred explanation?",
+    boundary:
+      "Share a minimal data shape and the failing expression instead of production records or a complete repository.",
+  },
+  {
+    title: "When is redaction too aggressive?",
+    tension:
+      "Secrets must be removed, but replacing every path, host, and identifier can erase relationships that are essential to debugging.",
+    discuss:
+      "Which values need stable placeholders such as USER_A or SERVICE_B so repeated references remain comparable?",
+    boundary:
+      "Never publish credentials, signed URLs, customer data, internal hostnames, or proprietary source. Reproduce the structure with synthetic values.",
+  },
+];
+
 async function getDiscussions() {
   try {
     const response = await fetch(
@@ -83,6 +113,45 @@ export default async function CommunityPage() {
 
           <CommunityForm />
         </div>
+
+        <section className="mt-14">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300">
+            Discussion starters
+          </p>
+          <h2 className="mt-3 max-w-3xl text-3xl font-semibold text-white">
+            Questions where the useful answer depends on evidence, not preference
+          </h2>
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-stone-300">
+            These are deliberately unresolved. Use them to compare debugging
+            decisions, explain a tradeoff, or turn a vague AI complaint into a
+            question another developer can test.
+          </p>
+          <div className="mt-6 grid gap-4 lg:grid-cols-3">
+            {starterTopics.map((topic) => (
+              <article
+                key={topic.title}
+                className="rounded-[26px] border border-white/10 bg-white/[0.03] p-6"
+              >
+                <h3 className="text-xl font-semibold text-white">{topic.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-stone-300">
+                  {topic.tension}
+                </p>
+                <div className="mt-5 rounded-2xl border border-emerald-300/15 bg-emerald-300/[0.05] p-4">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-emerald-300">
+                    Testable angle
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-stone-200">
+                    {topic.discuss}
+                  </p>
+                </div>
+                <p className="mt-5 text-xs leading-6 text-stone-400">
+                  <span className="font-semibold text-amber-300">Safe boundary:</span>{" "}
+                  {topic.boundary}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <section className="mt-14">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
