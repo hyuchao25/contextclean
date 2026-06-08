@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 import { siteUrl } from "./seo";
 
 const spaceGrotesk = Space_Grotesk({
@@ -57,7 +58,9 @@ export default function RootLayout({
         ></script>
       </head>
       <body>
+        <SiteHeader />
         {children}
+        <SiteFooter />
         <Analytics />
       </body>
     </html>

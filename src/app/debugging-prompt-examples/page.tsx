@@ -74,18 +74,14 @@ export default function DebuggingPromptExamplesPage() {
             <Link href="/ai-debugging-checklist" className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-300 hover:text-white">
               AI Debugging Checklist
             </Link>
-            <Link href="/what-makes-a-high-signal-error-report" className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-300 hover:text-white">
-              High-Signal Error Reports
+            <Link href="/ai-debugging-workflow-templates" className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-300 hover:text-white">
+              Interactive Report Builder
             </Link>
-            <Link href="/compare-raw-vs-cleaned-logs" className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-300 hover:text-white">
-              Compare Raw vs Cleaned Logs
+            <Link href="/before-after-log-examples" className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-300 hover:text-white">
+              Annotated Log Examples
             </Link>
           </div>
         </section>
-
-        <p className="mt-10 text-sm leading-7 text-stone-400">
-          Last reviewed: May 25, 2026. Maintained as part of the ContextClean resource library.
-        </p>
       </article>
     </main>
   );

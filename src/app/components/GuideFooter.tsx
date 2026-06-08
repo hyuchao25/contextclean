@@ -2,12 +2,12 @@ import Link from "next/link";
 
 const relatedGuides = [
   {
-    href: "/clean-stack-trace-for-chatgpt",
-    title: "Clean Stack Trace for ChatGPT",
+    href: "/how-contextclean-works",
+    title: "How ContextClean Works",
   },
   {
-    href: "/reduce-debugging-context-for-ai",
-    title: "Reduce Debugging Context for AI",
+    href: "/before-after-log-examples",
+    title: "Before-and-After Examples",
   },
   {
     href: "/clean-nodejs-error-log",

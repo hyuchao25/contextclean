@@ -30,7 +30,7 @@ export default function TermsPage() {
         </h1>
 
         <p className="mt-6 text-sm leading-7 text-stone-300">
-          Last updated: May 25, 2026.
+          Last updated: June 8, 2026.
         </p>
 
         <div className="mt-6 space-y-5 text-sm leading-7 text-stone-300">
@@ -95,6 +95,22 @@ export default function TermsPage() {
         </div>
 
         <h2 className="mt-10 text-2xl font-semibold text-white">
+          Public community content
+        </h2>
+        <div className="mt-4 space-y-4 text-sm leading-7 text-stone-300">
+          <p>
+            Community discussions are published through the public ContextClean
+            GitHub repository. You are responsible for the content you submit and
+            must not post secrets, personal data, confidential code, abusive
+            material, spam, or content that violates another party&apos;s rights.
+          </p>
+          <p>
+            ContextClean may close, edit labels on, or remove links to discussions
+            that are unsafe, off-topic, misleading, or abusive.
+          </p>
+        </div>
+
+        <h2 className="mt-10 text-2xl font-semibold text-white">
           Third-party services
         </h2>
         <div className="mt-4 space-y-4 text-sm leading-7 text-stone-300">
@@ -121,8 +137,13 @@ export default function TermsPage() {
         </h2>
         <div className="mt-4 space-y-4 text-sm leading-7 text-stone-300">
           <p>
-            Questions about these terms can be sent to
-            <span className="text-white"> support@contextclean.dev</span>.
+            Questions about these terms can be opened through the public
+            <a
+              href="https://github.com/hyuchao25/contextclean/issues/new"
+              className="ml-1 text-emerald-300 hover:text-emerald-200"
+            >
+              ContextClean issue tracker
+            </a>.
           </p>
         </div>
       </section>

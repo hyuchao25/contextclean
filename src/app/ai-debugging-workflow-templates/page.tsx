@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ErrorReportBuilder from "../components/ErrorReportBuilder";
 import { getPageSeo, siteUrl } from "../seo";
 
 const seo = getPageSeo("/ai-debugging-workflow-templates");
@@ -91,6 +92,8 @@ export default function AIDebuggingWorkflowTemplatesPage() {
             ))}
           </div>
         </section>
+
+        <ErrorReportBuilder />
       </article>
     </main>
   );

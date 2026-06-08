@@ -30,7 +30,7 @@ export default function PrivacyPage() {
         </h1>
 
         <p className="mt-6 text-sm leading-7 text-stone-300">
-          Last updated: May 25, 2026.
+          Last updated: June 8, 2026.
         </p>
 
         <div className="mt-6 space-y-5 text-sm leading-7 text-stone-300">
@@ -99,6 +99,37 @@ export default function PrivacyPage() {
         </div>
 
         <h2 className="mt-10 text-2xl font-semibold text-white">
+          Browser interaction preferences
+        </h2>
+        <div className="mt-4 space-y-4 text-sm leading-7 text-stone-300">
+          <p>
+            The AI Field Notes page can store a poll choice and Bingo selections in
+            your browser&apos;s local storage. These preferences remain on the device
+            and are not submitted as a shared vote or attached to an account.
+          </p>
+          <p>
+            Prompt Clinic text, scores, and challenge answers are evaluated in the
+            current browser tab and are not submitted to a ContextClean server.
+          </p>
+        </div>
+
+        <h2 className="mt-10 text-2xl font-semibold text-white">
+          Community discussions
+        </h2>
+        <div className="mt-4 space-y-4 text-sm leading-7 text-stone-300">
+          <p>
+            The community form prepares a public GitHub issue. Publishing requires a
+            GitHub account, and the discussion is stored and processed by GitHub under
+            its own terms and privacy policy. ContextClean displays recent public
+            community issues using the GitHub API.
+          </p>
+          <p>
+            Do not publish credentials, customer data, private URLs, confidential
+            source code, or any information you are not authorized to disclose.
+          </p>
+        </div>
+
+        <h2 className="mt-10 text-2xl font-semibold text-white">
           Links to other services
         </h2>
         <div className="mt-4 space-y-4 text-sm leading-7 text-stone-300">
@@ -114,8 +145,15 @@ export default function PrivacyPage() {
         </h2>
         <div className="mt-4 space-y-4 text-sm leading-7 text-stone-300">
           <p>
-            Privacy questions can be sent to
-            <span className="text-white"> support@contextclean.dev</span>.
+            Privacy questions can be opened through the
+            <a
+              href="https://github.com/hyuchao25/contextclean/issues/new"
+              className="mx-1 text-emerald-300 hover:text-emerald-200"
+            >
+              ContextClean issue tracker
+            </a>
+            without including private data. If the matter cannot be described safely
+            in public, request a private contact channel in the issue.
           </p>
           <p>
             This policy may be updated as the site evolves, adds providers, or

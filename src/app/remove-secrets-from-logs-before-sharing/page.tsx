@@ -71,9 +71,45 @@ export default function RemoveSecretsFromLogsBeforeSharingPage() {
           </ol>
         </section>
 
-        <p className="mt-10 text-sm leading-7 text-stone-400">
-          Last reviewed: May 25, 2026. Maintained as part of the ContextClean resource library.
-        </p>
+        <section className="mt-10 overflow-hidden rounded-[28px] border border-white/10">
+          <div className="grid grid-cols-[1fr_1.2fr_1fr] bg-white/[0.06] text-sm font-semibold text-white">
+            <div className="p-4">Pattern</div>
+            <div className="p-4">Unsafe example</div>
+            <div className="p-4">Safer replacement</div>
+          </div>
+          {[
+            ["Authorization header", "Authorization: Bearer eyJ...", "Authorization: Bearer [REDACTED_TOKEN]"],
+            ["Connection string", "postgres://admin:password@db.internal/app", "postgres://[USER]:[PASSWORD]@[INTERNAL_HOST]/[DB]"],
+            ["Signed URL", "https://bucket.example/file?X-Amz-Signature=...", "https://[BUCKET]/[FILE]?[SIGNED_QUERY_REMOVED]"],
+            ["Customer record", "userId=84291 email=user@example.com", "userId=[CUSTOMER_ID] email=[CUSTOMER_EMAIL]"],
+          ].map(([pattern, unsafe, safe]) => (
+            <div key={pattern} className="grid grid-cols-[1fr_1.2fr_1fr] border-t border-white/10 bg-stone-950/60 text-xs leading-6 text-stone-300">
+              <div className="p-4 font-semibold text-white">{pattern}</div>
+              <code className="break-all p-4 text-red-200">{unsafe}</code>
+              <code className="break-all p-4 text-emerald-200">{safe}</code>
+            </div>
+          ))}
+        </section>
+
+        <section className="mt-10 grid gap-4 md:grid-cols-2">
+          <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+            <h2 className="text-2xl font-semibold text-white">Why placeholders are better than deletion</h2>
+            <p className="mt-4 text-sm leading-7 text-stone-300">
+              A placeholder preserves the role and structure of a value. A reviewer
+              can still see that authentication, a customer identifier, or an
+              internal host was involved without receiving the underlying secret.
+            </p>
+          </div>
+          <div className="rounded-[28px] border border-amber-300/15 bg-amber-300/[0.05] p-6">
+            <h2 className="text-2xl font-semibold text-white">Do not share when</h2>
+            <p className="mt-4 text-sm leading-7 text-stone-300">
+              The diagnostic value depends on production payloads, regulated data,
+              proprietary algorithms, private certificates, or credentials that
+              cannot be represented safely. Move the investigation to an approved
+              internal environment instead.
+            </p>
+          </div>
+        </section>
       </article>
     </main>
   );

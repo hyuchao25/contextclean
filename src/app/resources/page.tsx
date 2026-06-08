@@ -1,225 +1,118 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getPageSeo, siteUrl } from "../seo";
 
 const seo = getPageSeo("/resources");
 
-export const metadata = {
+export const metadata: Metadata = {
   title: seo.title,
   description: seo.description,
-  alternates: {
-    canonical: `${siteUrl}${seo.path}`,
-  },
+  alternates: { canonical: `${siteUrl}${seo.path}` },
 };
 
-const resources = [
+const collections = [
   {
-    href: "/ai-debugging-checklist",
-    title: "AI Debugging Checklist",
-    body: "A concrete review checklist for preparing logs, stating the expected behavior, and keeping the model focused on the real failure.",
+    title: "Start here",
+    description: "Understand the workflow before trimming a production log.",
+    links: [
+      ["/how-contextclean-works", "How ContextClean works", "What the cleaner removes, preserves, and cannot decide for you."],
+      ["/ai-debugging-checklist", "AI debugging checklist", "A short checklist for context, safety, and prompt quality."],
+      ["/before-after-log-examples", "Before-and-after examples", "See realistic transformations and the reasoning behind each one."],
+      ["/field-notes", "AI coding field notes", "Failure patterns, counter-prompts, polls, jokes, and an answer smell detector."],
+      ["/prompt-clinic", "Prompt clinic", "Score a debugging request and practice evidence-driven scenarios."],
+    ],
   },
   {
-    href: "/safe-log-sharing-for-ai",
-    title: "Safe Log Sharing for AI",
-    body: "How to think about secrets, customer data, internal URLs, and other sensitive details before you paste any log into a third-party tool.",
+    title: "Safety",
+    description: "Review logs for private data before they leave your environment.",
+    links: [
+      ["/remove-secrets-from-logs-before-sharing", "Remove secrets from logs", "Common credential formats, redaction steps, and manual checks."],
+      ["/safe-log-sharing-for-ai", "Safe log sharing", "Decide what can be shared with a teammate or third-party AI service."],
+      ["/privacy", "ContextClean privacy policy", "How the site, analytics, and browser-based cleaner handle data."],
+    ],
   },
   {
-    href: "/how-to-read-build-errors-before-asking-ai",
-    title: "How to Read Build Errors Before Asking AI",
-    body: "A practical reminder that the first useful debugging step is still a human read of the build output, not blind prompt forwarding.",
+    title: "Framework guides",
+    description: "Keep the diagnostic details that matter for a specific toolchain.",
+    links: [
+      ["/clean-nodejs-error-log", "Node.js errors", "Module resolution, runtime stacks, and package-manager noise."],
+      ["/clean-python-traceback-for-ai", "Python tracebacks", "Preserve exception chaining and application frames."],
+      ["/clean-react-error-stack", "React error stacks", "Component failures, hydration warnings, and framework frames."],
+      ["/clean-nextjs-build-error", "Next.js build errors", "Compiler output, route failures, and build-time context."],
+      ["/clean-typescript-error-for-ai", "TypeScript diagnostics", "Keep the expected type, received type, and source location."],
+      ["/clean-docker-build-log", "Docker build logs", "Reduce layer progress while preserving the failed instruction."],
+    ],
   },
   {
-    href: "/debugging-prompt-examples",
-    title: "Debugging Prompt Examples",
-    body: "Concrete examples of short, high-signal prompts for runtime crashes, build failures, and failing tests.",
-  },
-  {
-    href: "/before-after-log-examples",
-    title: "Before-and-After Log Examples",
-    body: "Side-by-side examples showing how large logs can be reduced into smaller, more reviewable AI debugging inputs.",
-  },
-  {
-    href: "/editorial-updates",
-    title: "Editorial Updates",
-    body: "A summary page showing that the site is actively maintained and expanded over time.",
-  },
-  {
-    href: "/debug-hydration-errors-step-by-step",
-    title: "Debug Hydration Errors Step by Step",
-    body: "A practical walkthrough for narrowing hydration mismatches before asking an AI assistant to diagnose them.",
-  },
-  {
-    href: "/remove-secrets-from-logs-before-sharing",
-    title: "Remove Secrets Before Sharing Logs",
-    body: "A safety-focused tutorial on redacting tokens, customer data, and internal endpoints before sharing debugging output.",
-  },
-  {
-    href: "/common-typescript-errors-ai-misreads",
-    title: "TypeScript Errors AI Misreads",
-    body: "Notes on common TypeScript diagnostics that become easier to misdiagnose when the prompt is cluttered.",
-  },
-  {
-    href: "/share-ci-failures-with-teammates-and-ai",
-    title: "Share CI Failures Better",
-    body: "A short workflow for summarizing CI failures for teammates and AI without pasting a full pipeline transcript.",
-  },
-  {
-    href: "/when-not-to-trim-logs-for-ai",
-    title: "When Not to Trim Logs",
-    body: "A guide to the cases where aggressive compression can hide the real cause instead of clarifying it.",
-  },
-  {
-    href: "/how-contextclean-works",
-    title: "How ContextClean Works",
-    body: "A methodology page explaining the difference between diagnostic signal and surrounding log narration.",
-  },
-  {
-    href: "/ai-debugging-glossary",
-    title: "AI Debugging Glossary",
-    body: "A glossary of terms used across the site's guides for prompts, logs, redaction, and error summaries.",
-  },
-  {
-    href: "/what-makes-a-high-signal-error-report",
-    title: "High-Signal Error Reports",
-    body: "Guidance on what makes an error report useful for AI tools, issue trackers, and teammate handoffs.",
-  },
-  {
-    href: "/who-contextclean-is-for",
-    title: "Who ContextClean Is For",
-    body: "A candid page describing which users and workflows fit the product best and where its limits are.",
-  },
-  {
-    href: "/compare-raw-vs-cleaned-logs",
-    title: "Compare Raw vs Cleaned Logs",
-    body: "A comparison page that explains the behavioral difference between noisy prompts and higher-signal prompts.",
-  },
-  {
-    href: "/editorial-standards",
-    title: "Editorial Standards",
-    body: "A page describing how ContextClean approaches guide quality, examples, boundaries, and maintenance.",
-  },
-  {
-    href: "/site-maintenance-and-review-process",
-    title: "Maintenance and Review Process",
-    body: "A page explaining how the site is reviewed, expanded, and maintained over time.",
-  },
-  {
-    href: "/all-guides",
-    title: "All Guides and Resources",
-    body: "A human-readable site index that groups the educational library into core guides, workflows, reference pages, and examples.",
-  },
-  {
-    href: "/solutions",
-    title: "Solutions",
-    body: "Business and workflow use cases for developers, engineering teams, support triage, and AI-assisted debugging.",
-  },
-  {
-    href: "/for-engineering-teams",
-    title: "For Engineering Teams",
-    body: "Team-oriented guidance for using cleaned logs in pull requests, CI triage, issue reports, and async debugging handoffs.",
-  },
-  {
-    href: "/for-support-and-bug-reports",
-    title: "For Support and Bug Reports",
-    body: "A practical support workflow for reducing noisy user logs before escalating them to engineering or AI tools.",
-  },
-  {
-    href: "/ai-debugging-workflow-templates",
-    title: "AI Debugging Workflow Templates",
-    body: "Reusable prompt and handoff formats for build failures, runtime crashes, and CI failures.",
+    title: "Team workflows",
+    description: "Prepare a report that another person can understand asynchronously.",
+    links: [
+      ["/clean-ci-error-log", "CI failure summaries", "Capture the job, step, command, exit code, and useful output."],
+      ["/for-engineering-teams", "Engineering handoffs", "Use a consistent structure in PRs, issues, and debugging threads."],
+      ["/for-support-and-bug-reports", "Support escalation", "Turn a customer log into a safer engineering report."],
+      ["/ai-debugging-workflow-templates", "Prompt templates", "Reusable structures for build, runtime, CI, and support cases."],
+      ["/community", "Community discussions", "Ask other developers about difficult AI debugging and context decisions."],
+    ],
   },
 ];
 
 export default function ResourcesPage() {
   return (
-    <main className="min-h-screen px-4 py-8 text-stone-100 sm:px-6 lg:px-8">
-      <section className="mx-auto max-w-6xl rounded-[32px] border border-white/10 bg-stone-950/80 p-8">
-        <Link href="/" className="text-sm text-emerald-300 hover:text-emerald-200">
-          Back to ContextClean
-        </Link>
-
-        <p className="mt-8 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300/80">
-          Resources
-        </p>
-        <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-white">
-          Resources for better AI debugging prompts, safer log sharing, and cleaner developer workflows
-        </h1>
-        <p className="mt-6 max-w-3xl text-sm leading-7 text-stone-300">
-          ContextClean is a focused utility, but the workflow around it is broader.
-          Developers still need to decide what context matters, what should never be
-          shared, and how to phrase a debugging prompt so the model can do useful work.
-          This resource section exists to make those decisions more explicit.
-        </p>
-
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-            <h2 className="text-lg font-semibold text-white">Operational value</h2>
-            <p className="mt-2 text-sm leading-6 text-stone-300">
-              Better debugging prompts reduce wasted back-and-forth when a model is
-              distracted by noise or misses the actual failing line.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-            <h2 className="text-lg font-semibold text-white">Safety value</h2>
-            <p className="mt-2 text-sm leading-6 text-stone-300">
-              Shorter logs are easier to inspect for secrets, customer data, and
-              internal details before they are shared with another system.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-            <h2 className="text-lg font-semibold text-white">Editorial value</h2>
-            <p className="mt-2 text-sm leading-6 text-stone-300">
-              Supporting pages make the site more useful than a one-screen tool and
-              give users a place to learn the workflow around the product.
-            </p>
-          </div>
+    <main className="px-4 py-12 text-stone-100 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-4xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300">
+            Resource library
+          </p>
+          <h1 className="mt-4 text-5xl font-semibold tracking-tight text-white">
+            Practical guides for cleaner and safer debugging context
+          </h1>
+          <p className="mt-6 text-lg leading-8 text-stone-300">
+            These guides explain the decisions a text filter cannot make: which
+            frames matter, what information is missing, when a log is unsafe to
+            share, and how to turn cleaned output into a useful debugging request.
+          </p>
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {resources.map((resource) => (
-            <Link
-              key={resource.href}
-              href={resource.href}
-              className="rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-6 transition hover:border-emerald-400/40 hover:bg-emerald-300/[0.05]"
-            >
-              <h2 className="text-xl font-semibold text-white">{resource.title}</h2>
-              <p className="mt-3 text-sm leading-6 text-stone-300">{resource.body}</p>
-            </Link>
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          {collections.map((collection) => (
+            <section key={collection.title} className="rounded-[30px] border border-white/10 bg-stone-950/70 p-7">
+              <h2 className="text-2xl font-semibold text-white">{collection.title}</h2>
+              <p className="mt-3 text-sm leading-6 text-stone-400">{collection.description}</p>
+              <div className="mt-6 space-y-3">
+                {collection.links.map(([href, title, body]) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="block rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition hover:border-emerald-300/30 hover:bg-emerald-300/[0.04]"
+                  >
+                    <h3 className="font-semibold text-white">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-stone-300">{body}</p>
+                  </Link>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
 
-        <section className="mt-10 rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
-          <h2 className="text-2xl font-semibold text-white">
-            Why this section exists
-          </h2>
-          <div className="mt-4 space-y-4 text-sm leading-7 text-stone-300">
-            <p>
-              The most common failure mode in AI-assisted debugging is not the model
-              being bad. It is the input being cluttered, incomplete, or risky to
-              share. Developers often paste everything they see, including build noise,
-              redundant frames, and sensitive details that were never needed to debug
-              the issue in the first place.
-            </p>
-            <p>
-              A better workflow is straightforward: read the output once yourself,
-              isolate the real failure, remove low-signal text, add one sentence about
-              the expected behavior and one sentence about what changed, then ask the
-              AI for a specific next step. These resource pages support that workflow.
-            </p>
+        <section className="mt-10 rounded-[30px] border border-amber-300/15 bg-amber-300/[0.06] p-7">
+          <h2 className="text-2xl font-semibold text-white">A useful debugging report has four parts</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-4">
+            {[
+              ["1", "Failure", "The exact command, route, job, or action that failed."],
+              ["2", "Context", "Expected behavior, environment, and the recent change."],
+              ["3", "Evidence", "A reviewed error excerpt with sensitive data removed."],
+              ["4", "Question", "The root cause, next check, or minimal fix you need."],
+            ].map(([number, title, body]) => (
+              <div key={number} className="rounded-2xl border border-white/10 bg-black/20 p-5">
+                <p className="font-mono text-sm text-amber-200">{number}</p>
+                <h3 className="mt-3 font-semibold text-white">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-stone-300">{body}</p>
+              </div>
+            ))}
           </div>
         </section>
-
-        <section className="mt-10 rounded-[28px] border border-emerald-400/15 bg-emerald-300/8 p-6">
-          <h2 className="text-2xl font-semibold text-white">Resource maintenance notes</h2>
-          <div className="mt-4 space-y-3 text-sm leading-7 text-stone-300">
-            <p>Last reviewed: May 25, 2026.</p>
-            <p>Maintained by ContextClean as an evolving developer resource library.</p>
-            <p>
-              Pages in this section are expanded over time with new examples, workflow
-              notes, case studies, and topic-specific references.
-            </p>
-          </div>
-        </section>
-      </section>
+      </div>
     </main>
   );
 }

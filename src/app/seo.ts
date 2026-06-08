@@ -1,265 +1,163 @@
 export const siteUrl = "https://www.contextclean.dev";
 
 export const defaultDescription =
-  "Clean noisy logs, stack traces, tracebacks, build errors, and CI output before sending them to ChatGPT, Claude, Cursor, Codex, or other AI coding tools.";
+  "Clean, inspect, deduplicate, and redact noisy logs in your browser before sharing them with a teammate or AI coding assistant.";
 
 export const pages = [
   {
     path: "/",
-    title: "ContextClean - Clean Logs & Stack Traces for AI",
+    title: "ContextClean - Free Local Log Cleaner for AI Debugging",
     description: defaultDescription,
   },
   {
-    path: "/clean-stack-trace-for-chatgpt",
-    title: "Clean Stack Trace for ChatGPT - ContextClean",
-    description:
-      "Clean noisy stack traces before sending them to ChatGPT for AI debugging.",
-  },
-  {
-    path: "/reduce-debugging-context-for-ai",
-    title: "Reduce Debugging Context for AI - ContextClean",
-    description:
-      "Shorten noisy debugging context before sending logs to AI coding assistants.",
-  },
-  {
-    path: "/clean-nodejs-error-log",
-    title: "Clean Node.js Error Logs - ContextClean",
-    description:
-      "Clean noisy Node.js error logs before asking AI coding tools for debugging help.",
-  },
-  {
-    path: "/clean-python-traceback-for-ai",
-    title: "Clean Python Tracebacks for AI - ContextClean",
-    description:
-      "Clean Python tracebacks before sending them to ChatGPT, Claude, Cursor, or Codex.",
-  },
-  {
-    path: "/clean-react-error-stack",
-    title: "Clean React Error Stacks - ContextClean",
-    description:
-      "Clean React and Next.js error stacks before using AI coding assistants.",
-  },
-  {
-    path: "/clean-nextjs-build-error",
-    title: "Clean Next.js Build Errors - ContextClean",
-    description:
-      "Clean noisy Next.js build errors before sending them to AI debugging tools.",
-  },
-  {
-    path: "/clean-typescript-error-for-ai",
-    title: "Clean TypeScript Errors for AI - ContextClean",
-    description:
-      "Clean TypeScript compiler errors before asking AI tools for debugging help.",
-  },
-  {
-    path: "/clean-docker-build-log",
-    title: "Clean Docker Build Logs - ContextClean",
-    description:
-      "Clean Docker build logs before sending build failures to AI coding tools.",
-  },
-  {
-    path: "/clean-ci-error-log",
-    title: "Clean CI Error Logs - ContextClean",
-    description:
-      "Clean CI logs from GitHub Actions, GitLab CI, and other pipelines for AI debugging.",
-  },
-  {
-    path: "/clean-error-log-for-cursor",
-    title: "Clean Error Logs for Cursor AI - ContextClean",
-    description:
-      "Clean error logs before pasting them into Cursor AI Chat or Composer.",
-  },
-  {
-    path: "/clean-ai-coding-prompt-context",
-    title: "Clean AI Coding Prompt Context - ContextClean",
-    description:
-      "Shorten noisy debugging context before sending prompts to AI coding tools.",
-  },
-  {
     path: "/resources",
-    title: "Resources for AI Debugging Workflows - ContextClean",
+    title: "AI Debugging Guides and Resources - ContextClean",
     description:
-      "Read practical resources on AI debugging prompts, safer log sharing, and build-error review workflows.",
+      "Practical guides for reading errors, preserving diagnostic evidence, redacting secrets, and writing better debugging requests.",
+  },
+  {
+    path: "/community",
+    title: "AI Debugging Community Discussions - ContextClean",
+    description:
+      "Discuss AI debugging prompts, log cleanup, error context, and safer technical problem sharing with other developers.",
+  },
+  {
+    path: "/field-notes",
+    title: "AI Coding Field Notes: Failure Patterns, Polls and Jokes",
+    description:
+      "Explore recurring AI coding failure patterns, check an answer for hallucination risk, play debugging Bingo, and share a public AI roast.",
+  },
+  {
+    path: "/prompt-clinic",
+    title: "AI Debugging Prompt Clinic and Evidence Challenge",
+    description:
+      "Score a debugging prompt, find missing evidence, generate a clearer structure, and practice five evidence-driven AI debugging scenarios.",
+  },
+  {
+    path: "/how-contextclean-works",
+    title: "How ContextClean Filters Logs - Methodology and Limits",
+    description:
+      "Read the exact signal, noise, deduplication, and secret-detection rules used by the ContextClean browser workbench.",
+  },
+  {
+    path: "/before-after-log-examples",
+    title: "Annotated Before-and-After Log Examples - ContextClean",
+    description:
+      "Review realistic Node.js, Python, CI, and Next.js log reductions with explanations of what stays, what leaves, and why.",
   },
   {
     path: "/ai-debugging-checklist",
-    title: "AI Debugging Checklist - ContextClean",
+    title: "Seven-Step AI Debugging Checklist - ContextClean",
     description:
-      "Use a practical checklist to send better logs and cleaner prompts to AI coding assistants.",
+      "Use a seven-step evidence, context, privacy, and verification checklist before asking an AI assistant to debug an error.",
   },
   {
-    path: "/safe-log-sharing-for-ai",
-    title: "Safe Log Sharing for AI - ContextClean",
+    path: "/ai-debugging-workflow-templates",
+    title: "AI Debugging Templates and Report Builder - ContextClean",
     description:
-      "Learn how to reduce privacy and security risk before sharing logs with AI tools.",
-  },
-  {
-    path: "/how-to-read-build-errors-before-asking-ai",
-    title: "How to Read Build Errors Before Asking AI - ContextClean",
-    description:
-      "Read build failures more effectively before sending them to AI coding assistants.",
+      "Build complete debugging reports for runtime, build, CI, TypeScript, hydration, and support failures.",
   },
   {
     path: "/debugging-prompt-examples",
     title: "Debugging Prompt Examples - ContextClean",
     description:
-      "Read concrete examples of AI debugging prompts for build errors, runtime crashes, and failing tests.",
-  },
-  {
-    path: "/before-after-log-examples",
-    title: "Before-and-After Log Examples - ContextClean",
-    description:
-      "See side-by-side examples of noisy logs transformed into cleaner AI debugging prompts.",
-  },
-  {
-    path: "/editorial-updates",
-    title: "Editorial Updates - ContextClean",
-    description:
-      "Review recent editorial and product updates across the ContextClean site.",
-  },
-  {
-    path: "/debug-hydration-errors-step-by-step",
-    title: "Debug Hydration Errors Step by Step - ContextClean",
-    description:
-      "Learn a step-by-step process for narrowing React and Next.js hydration errors before asking AI for help.",
+      "Read concrete AI debugging prompts for build errors, runtime crashes, and failing tests.",
   },
   {
     path: "/remove-secrets-from-logs-before-sharing",
     title: "Remove Secrets From Logs Before Sharing - ContextClean",
     description:
-      "Learn how to redact secrets and sensitive data from logs before sharing them with AI tools or teammates.",
+      "Identify and replace credentials, signed URLs, customer data, and internal infrastructure details before sharing logs.",
   },
   {
-    path: "/common-typescript-errors-ai-misreads",
-    title: "Common TypeScript Errors AI Misreads - ContextClean",
+    path: "/how-to-read-build-errors-before-asking-ai",
+    title: "How to Read Build Errors Before Asking AI - ContextClean",
     description:
-      "Read notes on TypeScript diagnostics that are easy for AI assistants to misread when prompts are noisy.",
+      "Find the first cause candidate, preserve source locations, and prepare useful build-error evidence before requesting help.",
   },
   {
-    path: "/share-ci-failures-with-teammates-and-ai",
-    title: "Share CI Failures With Teammates and AI - ContextClean",
+    path: "/debug-hydration-errors-step-by-step",
+    title: "Debug React and Next.js Hydration Errors Step by Step",
     description:
-      "Learn how to summarize CI failures clearly for teammates and AI without pasting a full pipeline transcript.",
+      "Narrow server and client rendering differences before asking an AI assistant to diagnose a hydration mismatch.",
   },
   {
-    path: "/when-not-to-trim-logs-for-ai",
-    title: "When Not to Trim Logs for AI - ContextClean",
+    path: "/clean-nodejs-error-log",
+    title: "Clean Node.js Error Logs - ContextClean",
     description:
-      "Learn when aggressive log trimming can hide the real cause instead of helping AI debugging.",
+      "Preserve module names and application frames while reducing Node.js internals and package-manager noise.",
   },
   {
-    path: "/how-contextclean-works",
-    title: "How ContextClean Works - ContextClean",
+    path: "/clean-python-traceback-for-ai",
+    title: "Clean Python Tracebacks for AI - ContextClean",
     description:
-      "Learn the methodology behind ContextClean and how it distinguishes likely signal from likely log noise.",
+      "Preserve exception chains and application frames while reducing unrelated Python library output.",
   },
   {
-    path: "/ai-debugging-glossary",
-    title: "AI Debugging Glossary - ContextClean",
+    path: "/clean-react-error-stack",
+    title: "Clean React Error Stacks - ContextClean",
     description:
-      "Read a glossary of terms related to AI debugging prompts, log redaction, and high-signal error reports.",
+      "Keep component locations and rendering evidence while reducing repetitive React framework frames.",
   },
   {
-    path: "/what-makes-a-high-signal-error-report",
-    title: "What Makes a High-Signal Error Report - ContextClean",
+    path: "/clean-nextjs-build-error",
+    title: "Clean Next.js Build Errors - ContextClean",
     description:
-      "Learn what makes an error report useful for AI tools, issue trackers, and teammate handoffs.",
+      "Prepare Next.js compiler, route, module, and build failures for a focused debugging request.",
   },
   {
-    path: "/who-contextclean-is-for",
-    title: "Who ContextClean Is For - ContextClean",
+    path: "/clean-typescript-error-for-ai",
+    title: "Clean TypeScript Errors for AI - ContextClean",
     description:
-      "Read who ContextClean is designed for and where a different workflow may be more appropriate.",
+      "Preserve expected and received types, diagnostics, and source locations in a concise TypeScript error report.",
   },
   {
-    path: "/compare-raw-vs-cleaned-logs",
-    title: "Compare Raw vs Cleaned Logs - ContextClean",
+    path: "/clean-docker-build-log",
+    title: "Clean Docker Build Logs - ContextClean",
     description:
-      "Compare the effect of raw logs and cleaned logs on AI debugging workflows.",
+      "Reduce layer-transfer output while preserving the failed Docker instruction, command, and exit code.",
   },
   {
-    path: "/editorial-standards",
-    title: "Editorial Standards - ContextClean",
+    path: "/clean-ci-error-log",
+    title: "Clean CI Error Logs - ContextClean",
     description:
-      "Read the editorial standards used for ContextClean guides, examples, and resource pages.",
-  },
-  {
-    path: "/site-maintenance-and-review-process",
-    title: "Site Maintenance and Review Process - ContextClean",
-    description:
-      "Read how ContextClean content is reviewed, maintained, and expanded over time.",
-  },
-  {
-    path: "/all-guides",
-    title: "All Guides and Resources - ContextClean",
-    description:
-      "Browse the full ContextClean guide library, examples, workflow notes, and reference pages.",
-  },
-  {
-    path: "/case-study-nextjs-hydration-log-cleanup",
-    title: "Case Study: Next.js Hydration Log Cleanup - ContextClean",
-    description:
-      "Read a case study on reducing a noisy Next.js hydration error into a usable AI debugging prompt.",
-  },
-  {
-    path: "/case-study-ci-failure-summary",
-    title: "Case Study: CI Failure Summary - ContextClean",
-    description:
-      "Read a case study on turning a long CI pipeline log into a short, higher-signal failure summary.",
-  },
-  {
-    path: "/case-study-typescript-noise-reduction",
-    title: "Case Study: TypeScript Noise Reduction - ContextClean",
-    description:
-      "Read a case study on reducing a noisy TypeScript compiler message without losing the key mismatch.",
-  },
-  {
-    path: "/solutions",
-    title: "Solutions for AI Debugging Workflows - ContextClean",
-    description:
-      "Explore ContextClean use cases for developers, engineering teams, support triage, and AI-assisted debugging workflows.",
+      "Turn long CI transcripts into reviewed summaries with the failing job, step, command, evidence, and exit code.",
   },
   {
     path: "/for-engineering-teams",
     title: "ContextClean for Engineering Teams",
     description:
-      "Learn how engineering teams can use ContextClean to share cleaner logs in pull requests, issues, and AI debugging threads.",
+      "Create clearer asynchronous debugging handoffs for pull requests, issues, CI failures, and incident follow-up.",
   },
   {
     path: "/for-support-and-bug-reports",
     title: "ContextClean for Support and Bug Reports",
     description:
-      "Learn how support teams can reduce noisy logs before escalating bug reports to engineering or AI tools.",
-  },
-  {
-    path: "/ai-debugging-workflow-templates",
-    title: "AI Debugging Workflow Templates - ContextClean",
-    description:
-      "Use reusable prompt templates for build failures, runtime crashes, CI failures, and AI debugging handoffs.",
+      "Reduce and redact customer-provided logs before escalating a focused bug report to engineering.",
   },
   {
     path: "/about",
     title: "About ContextClean",
     description:
-      "Learn about ContextClean, a browser-based log and stack trace cleaner for AI debugging.",
+      "Learn what ContextClean does, how its browser-based cleaner works, who maintains it, and where its limits are.",
   },
   {
     path: "/contact",
     title: "Contact ContextClean",
     description:
-      "Contact ContextClean for feedback, support, bug reports, and feature requests.",
+      "Contact ContextClean for product feedback, bug reports, corrections, privacy questions, and support.",
   },
   {
     path: "/privacy",
     title: "Privacy Policy - ContextClean",
     description:
-      "Read the ContextClean privacy policy for browser-based log cleaning and analytics.",
+      "Read how ContextClean handles browser-based log cleaning, analytics, advertising, and public community discussions.",
   },
   {
     path: "/terms",
     title: "Terms of Use - ContextClean",
     description:
-      "Read the ContextClean terms of use for browser-based log cleaning tools.",
+      "Read the terms for using ContextClean tools, guides, and public community discussions.",
   },
 ];
 

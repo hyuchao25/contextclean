@@ -1,0 +1,34 @@
+name: Community discussion
+description: Discuss an AI debugging, prompt, log cleaning, or documentation question.
+title: "[Community] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public. Remove credentials, customer data, private URLs, and confidential source code before posting.
+  - type: dropdown
+    id: category
+    attributes:
+      label: Discussion type
+      options:
+        - AI debugging question
+        - Prompt review
+        - Log cleaning feedback
+        - Feature request
+        - Documentation correction
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Question or discussion
+      description: Explain what you tried, what happened, and the point you want discussed.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I removed secrets, private customer data, and confidential source code.
+          required: true

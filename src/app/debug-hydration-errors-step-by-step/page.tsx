@@ -82,9 +82,6 @@ Error: Hydration failed because the initial UI does not match.`}
           </pre>
         </section>
 
-        <p className="mt-10 text-sm leading-7 text-stone-400">
-          Last reviewed: May 25, 2026. Maintained as part of the ContextClean resource library.
-        </p>
       </article>
     </main>
   );

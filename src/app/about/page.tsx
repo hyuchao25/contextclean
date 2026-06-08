@@ -115,17 +115,24 @@ export default function AboutPage() {
         </div>
 
         <h2 className="mt-10 text-2xl font-semibold text-white">
-          Site information
+          Who maintains ContextClean
         </h2>
         <div className="mt-4 space-y-4 text-sm leading-7 text-stone-300">
           <p>
-            ContextClean is published as an independent web product at
-            <span className="text-white"> contextclean.dev</span>. The site includes
-            a public homepage, supporting guide pages, and standard trust pages such
-            as About, Contact, Privacy Policy, and Terms of Use.
+            ContextClean is an independent developer utility maintained by the
+            ContextClean team. Product questions, bug reports, corrections, and
+            community discussions are managed through the public
+            <a
+              href="https://github.com/hyuchao25/contextclean/issues"
+              className="ml-1 text-emerald-300 hover:text-emerald-200"
+            >
+              ContextClean issue tracker
+            </a>.
           </p>
           <p>
-            Last content review for this page: May 25, 2026.
+            The project is funded through advertising when ads are available. Ads do
+            not change the local cleaning rules or provide access to text pasted into
+            the browser workbench.
           </p>
         </div>
       </section>
