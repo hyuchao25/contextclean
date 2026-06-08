@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import DailyAiJoke from "../components/DailyAiJoke";
 import FieldNotesLab from "../components/FieldNotesLab";
 import { siteUrl } from "../seo";
+
+export const revalidate = 3_600;
 
 export const metadata: Metadata = {
   title: "AI Coding Field Notes: Failure Patterns, Polls and Jokes",
@@ -98,13 +101,17 @@ export default function FieldNotesPage() {
             </p>
           </div>
           <div className="rounded-[28px] border border-amber-300/15 bg-amber-300/[0.06] p-6">
-            <p className="font-mono text-xs text-amber-200">FIELD NOTE #001</p>
+            <p className="font-mono text-xs text-amber-200">NEW EVERY DAY</p>
             <p className="mt-4 text-xl font-semibold leading-8 text-white">
-              If the answer begins with deleting every cache before mentioning the
-              actual error, the cache is probably not the only thing being cleared.
+              A date-based AI debugging roast now rotates automatically after midnight
+              in Asia/Shanghai, with six previous notes kept on the page.
             </p>
           </div>
         </section>
+
+        <div className="mt-14">
+          <DailyAiJoke />
+        </div>
 
         <section className="mt-14">
           <div className="max-w-4xl">

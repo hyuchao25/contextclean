@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AiNewsFeed } from "./components/AiNewsFeed";
 import CleanerWorkbench from "./components/CleanerWorkbench";
+import DailyAiJoke from "./components/DailyAiJoke";
 import { HeroTerminalVisual, WorkflowMapVisual } from "./components/VisualShowcase";
 import { getAiNews } from "./lib/ai-news";
 import { defaultDescription, siteUrl } from "./seo";
 
-export const revalidate = 21_600;
+export const revalidate = 3_600;
 
 export const metadata: Metadata = {
   title: "ContextClean - Free Local Log Cleaner for AI Debugging",
@@ -281,16 +282,7 @@ export default async function Home() {
               Enter the field notes
             </Link>
           </div>
-          <div className="rounded-[26px] border border-white/10 bg-black/30 p-6">
-            <p className="font-mono text-xs text-amber-200">AI SAYS</p>
-            <p className="mt-3 text-xl font-semibold text-white">
-              &quot;This should resolve the issue.&quot;
-            </p>
-            <p className="mt-6 font-mono text-xs text-emerald-200">FIELD TRANSLATION</p>
-            <p className="mt-3 text-sm leading-7 text-stone-300">
-              &quot;I generated a plausible patch but did not run your tests.&quot;
-            </p>
-          </div>
+          <DailyAiJoke showArchive={false} />
         </section>
 
         <section className="mb-16 rounded-[32px] border border-white/10 bg-stone-950/75 p-7 sm:p-10">
